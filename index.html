@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#06030f" />
+    <meta name="description" content="VedanAI is a software agency helping ambitious businesses build modern websites, static sites, backend systems, and grow with expert SEO." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    </noscript>
+    <title>VedanAI | Web Development, Backend & SEO Software Agency</title>
+    <style>
+      html, body {
+        margin: 0;
+        background-color: #06030f;
+        color: #f8fbff;
+        color-scheme: dark;
+      }
+      .preloader {
+        position: fixed;
+        z-index: 1000;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        overflow: hidden;
+        background: #06030f;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity .55s cubic-bezier(.4, 0, .2, 1), visibility .55s;
+      }
+      .preloader::before {
+        content: "";
+        position: absolute;
+        width: min(48vw, 380px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(88, 38, 168, .22), transparent 68%);
+        pointer-events: none;
+      }
+      .preloader__orbit {
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: min(48vw, 180px);
+        aspect-ratio: 1;
+      }
+      .preloader__ring {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        transform: rotate(-90deg);
+      }
+      .preloader__track,
+      .preloader__progress {
+        fill: none;
+        stroke-width: 1.4;
+      }
+      .preloader__track {
+        stroke: rgba(110, 144, 194, .23);
+      }
+      .preloader__progress {
+        stroke: #00eea6;
+        stroke-linecap: round;
+        stroke-dasharray: 155 832;
+        stroke-dashoffset: 0;
+        opacity: .8;
+        transform-origin: center;
+        animation: preloaderOrbit 2.7s linear infinite;
+      }
+      .preloader__brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        color: #f8fbff;
+        font-family: "Space Grotesk", Arial, sans-serif;
+      }
+      .preloader__brand > span {
+        font-size: clamp(17px, 1.7vw, 20px);
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: -.055em;
+        white-space: nowrap;
+      }
+      .preloader__symbol {
+        width: 23px;
+        height: 21px;
+        display: block;
+      }
+      .preloader--leaving {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .preloader--leaving .preloader__orbit {
+        transform: scale(.96);
+        transition: transform .55s cubic-bezier(.4, 0, .2, 1);
+      }
+      @keyframes preloaderOrbit {
+        to { transform: rotate(360deg); }
+      }
+      @media (max-width: 480px) {
+        .preloader__orbit { width: min(46vw, 158px); }
+        .preloader::before { width: min(46vw, 300px); }
+        .preloader__symbol { width: 21px; height: 19px; }
+        .preloader__brand > span { font-size: 18px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .preloader__progress { animation: none; opacity: .35; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="boot-preloader" class="preloader" role="status" aria-live="polite" aria-label="Loading VedanAI">
+      <div class="preloader__orbit" aria-hidden="true">
+        <svg class="preloader__ring" viewBox="0 0 320 320">
+          <circle class="preloader__track" cx="160" cy="160" r="157" />
+          <circle class="preloader__progress" cx="160" cy="160" r="157" />
+        </svg>
+        <div class="preloader__brand">
+          <svg class="preloader__symbol" viewBox="0 0 34 30" aria-hidden="true">
+            <path d="M2 24h10l6-7H8z" fill="#28d3ec" />
+            <path d="M8 16h11l6-8H14z" fill="#00efa6" />
+            <path d="M16 7h10l5-6H21z" fill="#7b81ff" />
+            <path d="M1 28h12l3-3H4z" fill="#3578f2" />
+          </svg>
+          <span>VedanAI</span>
+        </div>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

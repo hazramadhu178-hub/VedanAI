@@ -1,6 +1,6 @@
-import Icon from "./Icons.jsx";
-import { ArrowIcon, ButtonLink } from "./Shared.jsx";
-import MaintenanceSection from "./MaintenanceSection.jsx";
+import Icon from "../components/Icons.jsx";
+import { ArrowIcon, ButtonLink } from "../components/Shared.jsx";
+import MaintenanceSection from "../components/MaintenanceSection.jsx";
 
 const checks = ["Customizable", "Peak Performance", "Top Security"];
 const partners = ["OpenAI", "Microsoft", "NVIDIA", "Google Cloud", "AWS", "Anthropic"];

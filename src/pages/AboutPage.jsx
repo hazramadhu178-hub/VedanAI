@@ -1,5 +1,5 @@
-import Icon from "./Icons.jsx";
-import { ArrowIcon, ButtonLink, SectionLabel } from "./Shared.jsx";
+import Icon from "../components/Icons.jsx";
+import { ArrowIcon, ButtonLink, SectionLabel } from "../components/Shared.jsx";
 
 const stats = [
   { value: "5K+", label: "Projects Successfully Delivered" },

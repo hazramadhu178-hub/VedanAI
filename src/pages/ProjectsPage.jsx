@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowIcon, ButtonLink, SectionLabel } from "./Shared.jsx";
+import { ArrowIcon, ButtonLink, SectionLabel } from "../components/Shared.jsx";
 
 const teasers = [
   { image: "/images/project-nlp.webp", title: "Web Platform", category: "Web Development" },

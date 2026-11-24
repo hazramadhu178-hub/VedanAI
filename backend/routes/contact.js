@@ -1,0 +1,119 @@
+
+import express from "express";
+import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+
+dotenv.config({ override: true, path: ".env" });
+
+const router = express.Router();
+const emailUser = process.env.EMAIL_USER?.trim();
+const emailPass = process.env.EMAIL_PASS?.replace(/\s+/g, "");
+const emailTo = process.env.EMAIL_TO?.trim();
+
+if (!emailUser || !emailPass || !emailTo) {
+  throw new Error(
+    "Contact email is not configured. Set EMAIL_USER, EMAIL_PASS, and EMAIL_TO in .env."
+  );
+}
+
+// Gmail configuration
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: emailUser,
+    pass: emailPass,
+  },
+});
+
+// POST /api/contact
+router.post("/", async (req, res) => {
+  try {
+    const {
+      name,
+      email,
+      company,
+      phone,
+      service,
+      message,
+      source,
+    } = req.body;
+
+    // Required field validation
+    if (!name?.trim() || !email?.trim() ||
+        !service?.trim() || !message?.trim()) {
+      return res.status(400).json({
+        success: false,
+        message: "Please fill in all required fields.",
+      });
+    }
+
+    // Length validation
+    if (
+      name.length > 100 ||
+      email.length > 254 ||
+      company?.length > 150 ||
+      phone?.length > 30 ||
+      service.length > 100 ||
+      message.length > 5000
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "One or more fields are too long.",
+      });
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email.trim())) {
+      return res.status(400).json({
+        success: false,
+        message: "Please enter a valid email address.",
+      });
+    }
+
+    // Identify form location
+    const formSource =
+      source === "Home Page" ? "Home Page" : "Contact Page";
+
+    // Send email
+    await transporter.sendMail({
+      from: emailUser,
+      to: emailTo,
+      replyTo: email.trim(),
+
+      subject: `New LUXORIO Inquiry - ${service.trim()}`,
+
+      text: `
+        NEW VEDANAI CONTACT INQUIRY
+
+        Source: ${formSource}
+
+        Name: ${name.trim()}
+        Email: ${email.trim()}
+        Company: ${company?.trim() || "Not provided"}
+        Phone: ${phone?.trim() || "Not provided"}
+
+        Selected Service: ${service.trim()}
+
+        Message:
+        ${message.trim()}
+      `,
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "Your inquiry has been sent successfully!",
+    });
+
+  } catch (error) {
+    console.error("Nodemailer Error:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Unable to send your inquiry. Please try again.",
+    });
+  }
+});
+
+export default router;

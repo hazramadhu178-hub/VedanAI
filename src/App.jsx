@@ -2,20 +2,12 @@ import { useCallback, useEffect, useState } from "react";
 import Preloader from "./components/Preloader.jsx";
 import AeroBackground from "./components/AeroBackground.jsx";
 import Navbar from "./components/Navbar.jsx";
-import Hero from "./components/Hero.jsx";
-import About from "./components/About.jsx";
-import AboutPage from "./components/AboutPage.jsx";
-import ServicesPage from "./components/ServicesPage.jsx";
-import ContactPage from "./components/ContactPage.jsx";
-import ProjectsPage from "./components/ProjectsPage.jsx";
-import Mission from "./components/Mission.jsx";
-import Projects from "./components/Projects.jsx";
-import AIVisualization from "./components/AIVisualization.jsx";
-import Industries from "./components/Industries.jsx";
-import TrustSection from "./components/TrustSection.jsx";
-import Testimonials from "./components/Testimonials.jsx";
-import LatestNews from "./components/LatestNews.jsx";
 import Footer from "./components/Footer.jsx";
+import AboutPage from "./pages/AboutPage.jsx";
+import ContactPage from "./pages/ContactPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import ProjectsPage from "./pages/ProjectsPage.jsx";
+import ServicesPage from "./pages/ServicesPage.jsx";
 
 const SERVICES_ROUTE = "#/services";
 const ABOUT_ROUTE = "#/about";
@@ -193,17 +185,7 @@ export default function App() {
           ) : page === "projects" ? (
             <ProjectsPage />
           ) : (
-            <>
-              <Hero />
-              <About />
-              <Mission />
-              <Projects />
-              <AIVisualization />
-              <Industries />
-              <TrustSection />
-              <Testimonials />
-              <LatestNews />
-            </>
+            <HomePage />
           )}
         </main>
         <Footer />

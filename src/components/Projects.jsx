@@ -51,54 +51,38 @@ function useProjectLayers(showcaseRef) {
   useEffect(() => {
     const showcase = showcaseRef.current;
     const anchors = [...showcase.querySelectorAll(".project-stack__anchor")];
-    const layers = [...showcase.querySelectorAll(".project-showcase")];
     const motion = window.matchMedia("(prefers-reduced-motion: no-preference) and (min-height: 660px)");
-    let pinTops = [];
     let active = 0;
     let frame = 0;
 
-    const paint = () => {
+    const updateActive = () => {
       frame = 0;
       const height = window.innerHeight;
-      const bounds = showcase.getBoundingClientRect();
-      if (bounds.bottom <= 0 || bounds.top >= height) return;
-
       const tops = anchors.map((anchor) => anchor.getBoundingClientRect().top);
       const current = Math.max(0, tops.findLastIndex((top) => top <= height * .55));
       if (current !== active) {
         active = current;
         setActiveIndex(current);
       }
-      if (!motion.matches) return;
-
-      const arrivals = tops.map((top, index) => Math.min(1, Math.max(0, (height - top) / (height - pinTops[index]))));
-      // Each incoming project adds depth to the layers behind it.
-      let depth = 0;
-      for (let index = layers.length - 1; index >= 0; index -= 1) {
-        layers[index].style.setProperty("--project-depth", depth.toFixed(3));
-        layers[index].style.setProperty("--project-approach", (1 - arrivals[index]).toFixed(3));
-        depth += arrivals[index];
-      }
     };
 
-    const schedulePaint = () => {
-      if (!frame) frame = window.requestAnimationFrame(paint);
+    const scheduleUpdate = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateActive);
     };
 
     const syncLayout = () => {
       showcase.toggleAttribute("data-layered", motion.matches);
-      pinTops = motion.matches ? layers.map((layer) => parseFloat(getComputedStyle(layer).top)) : [];
-      schedulePaint();
+      scheduleUpdate();
     };
 
     syncLayout();
-    window.addEventListener("scroll", schedulePaint, { passive: true });
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
     window.addEventListener("resize", syncLayout);
     motion.addEventListener("change", syncLayout);
 
     return () => {
       window.cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", schedulePaint);
+      window.removeEventListener("scroll", scheduleUpdate);
       window.removeEventListener("resize", syncLayout);
       motion.removeEventListener("change", syncLayout);
     };
@@ -144,7 +128,7 @@ export default function Projects() {
               <div className="project-stack__anchor" id={project.id} />
               <article className={`project-showcase project-showcase--${index + 1} ${index % 2 ? "project-showcase--right" : ""}`} aria-labelledby={`${project.id}-title`}>
                 <div className="project-showcase__frame">
-                  <img className="project-showcase__image" src={project.image} alt="" />
+                  <img className="project-showcase__image" src={project.image} alt="" loading="lazy" decoding="async" />
                   <div className="project-showcase__scrim" />
                   <div className="project-showcase__content">
                     <h3 id={`${project.id}-title`}>{project.title}</h3>

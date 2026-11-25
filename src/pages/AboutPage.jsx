@@ -101,7 +101,7 @@ export default function AboutPage() {
         {/* ---------- Story ---------- */}
         <div className="about-story" id="about-story" data-reveal>
           <div className="about-story__media">
-            <img src="/images/about-robotics.webp" alt="The VedanAI studio team at work in a modern development space" />
+            <img src="/images/about-robotics.webp" alt="The VedanAI studio team at work in a modern development space" loading="lazy" decoding="async" />
             <div className="about-story__badge">
               <strong>12+</strong>
               <span>Years of<br />Excellence</span>

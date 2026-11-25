@@ -215,6 +215,8 @@ export default function AeroBackground({ paused = false }) {
     let height = 0;
     let frameId = 0;
     let lastTime = 0;
+    let scrollResumeTimer = 0;
+    let scrolling = false;
     let elapsed = 1.85;
     let reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -455,7 +457,7 @@ export default function AeroBackground({ paused = false }) {
     const MIN_FRAME_MS = 20;
     const tick = (now) => {
       frameId = requestAnimationFrame(tick);
-      if (document.hidden || reduced || pausedRef.current) {
+      if (document.hidden || reduced || pausedRef.current || scrolling) {
         lastTime = now;
         return;
       }
@@ -493,6 +495,12 @@ export default function AeroBackground({ paused = false }) {
 
     const onScroll = () => {
       scrollState.target = Math.min(2.5, window.scrollY / Math.max(window.innerHeight, 1));
+      scrolling = true;
+      window.clearTimeout(scrollResumeTimer);
+      scrollResumeTimer = window.setTimeout(() => {
+        scrolling = false;
+        lastTime = 0;
+      }, 120);
     };
 
     const onVisibility = () => {
@@ -520,6 +528,7 @@ export default function AeroBackground({ paused = false }) {
 
     return () => {
       cancelAnimationFrame(frameId);
+      window.clearTimeout(scrollResumeTimer);
       window.removeEventListener("resize", resize);
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerdown", onPointerDown);

@@ -118,9 +118,9 @@ function FeaturePreview({ type }) {
     return (
       <div className="service-preview service-preview--team" aria-hidden="true">
         <div className="service-preview__avatars">
-          <img src="/images/avatar-riya.jpg" alt="" />
-          <img src="/images/avatar-miguel.jpg" alt="" />
-          <img src="/images/avatar-sebastian.jpg" alt="" />
+          <img src="/images/avatar-riya.jpg" alt="" loading="lazy" decoding="async" />
+          <img src="/images/avatar-miguel.jpg" alt="" loading="lazy" decoding="async" />
+          <img src="/images/avatar-sebastian.jpg" alt="" loading="lazy" decoding="async" />
           <span>+8</span>
         </div>
         <div className="service-preview__invite"><strong>Invite friends to your company</strong><span>Share workspace access</span></div>
@@ -133,9 +133,9 @@ function FeaturePreview({ type }) {
     return (
       <div className="service-preview service-preview--chat" aria-hidden="true">
         <div className="service-preview__chat-head"><span>Project Room</span><span>Today</span></div>
-        <div className="service-preview__bubble service-preview__bubble--left"><img src="/images/avatar-riya.jpg" alt="" /><span>How can I help directly from the support team?</span></div>
-        <div className="service-preview__bubble service-preview__bubble--right"><span>Connect with our support agents who are ready to assist.</span><img src="/images/avatar-miguel.jpg" alt="" /></div>
-        <div className="service-preview__bubble service-preview__bubble--left"><img src="/images/avatar-sebastian.jpg" alt="" /><span>Great, I will update the workflow now.</span></div>
+        <div className="service-preview__bubble service-preview__bubble--left"><img src="/images/avatar-riya.jpg" alt="" loading="lazy" decoding="async" /><span>How can I help directly from the support team?</span></div>
+        <div className="service-preview__bubble service-preview__bubble--right"><span>Connect with our support agents who are ready to assist.</span><img src="/images/avatar-miguel.jpg" alt="" loading="lazy" decoding="async" /></div>
+        <div className="service-preview__bubble service-preview__bubble--left"><img src="/images/avatar-sebastian.jpg" alt="" loading="lazy" decoding="async" /><span>Great, I will update the workflow now.</span></div>
       </div>
     );
   }

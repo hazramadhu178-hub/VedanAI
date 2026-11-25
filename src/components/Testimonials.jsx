@@ -42,7 +42,7 @@ function TestimonialsTrack({ hidden = false }) {
           <Rating source={testimonial.source} />
           <blockquote>"{testimonial.quote}"</blockquote>
           <figcaption>
-            <img src={testimonial.avatar} alt="" />
+            <img src={testimonial.avatar} alt="" loading="lazy" decoding="async" />
             <span><strong>{testimonial.name}</strong><small>{testimonial.role}</small></span>
           </figcaption>
         </figure>

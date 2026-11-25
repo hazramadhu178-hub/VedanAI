@@ -44,14 +44,10 @@
 .footer-brand__logo {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   min-height: 48px;
   color: var(--text);
 }
-.footer-brand__mark { width: 36px; height: 32px; }
-.footer-brand__mark path { fill: #f4fffb; }
-.footer-brand__logo > span { font-family: "Space Grotesk", Arial, sans-serif; font-size: 27px; font-weight: 600; line-height: .95; letter-spacing: -.055em; }
-.footer-brand__logo small { display: block; margin-top: 5px; color: #063e34; font-family: "Inter", Arial, sans-serif; font-size: 8px; font-weight: 700; letter-spacing: .14em; }
+.footer-brand__logo img { display: block; width: 155px; height: 48px; object-fit: cover; }
 .footer-brand__logo:focus-visible, .footer-bottom__top:focus-visible { outline-color: var(--text); }
 .footer-brand__description { max-width: 340px; margin-top: 40px; color: var(--text-soft); font-size: 13px; line-height: 1.7; }
 .footer-socials { display: flex; flex-wrap: wrap; gap: 9px; margin: 23px 0 0; padding: 0; list-style: none; }

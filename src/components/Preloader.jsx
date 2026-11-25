@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { LogoMark } from "./Shared.jsx";
 
 const MINIMUM_DISPLAY_TIME = 1050;
 const MAXIMUM_WAIT_TIME = 2500;
@@ -71,8 +70,7 @@ export default function Preloader({ onFinish }) {
           <circle className="preloader__progress" cx="160" cy="160" r="157" />
         </svg>
         <div className="preloader__brand">
-          <LogoMark className="preloader__symbol" />
-          <span>VedanAI</span>
+          <img className="preloader__logo" src="/images/logo.png" alt="" />
         </div>
       </div>
       <span className="sr-only">Preparing your VedanAI experience.</span>

@@ -1,4 +1,4 @@
-import { ArrowIcon, LogoMark } from "./Shared.jsx";
+import { ArrowIcon } from "./Shared.jsx";
 
 const columns = [
   {
@@ -60,8 +60,7 @@ export default function Footer() {
         <div className="footer-main">
           <div className="footer-brand">
             <a className="footer-brand__logo" href="#home" aria-label="VedanAI, back to home">
-              <LogoMark className="footer-brand__mark" />
-              <span>VedanAI<small>SOFTWARE STUDIO</small></span>
+              <img src="/images/logo.png" alt="" />
             </a>
             <p className="footer-brand__description">
               We design modern software and websites that turn ambitious ideas into measurable momentum. Let&apos;s build what&apos;s next, together.

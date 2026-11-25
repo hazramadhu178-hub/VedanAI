@@ -60,25 +60,15 @@
 }
 
 .preloader__brand {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  color: var(--text);
+  display: grid;
+  place-items: center;
 }
 
-.preloader__brand > span {
-  font-family: "Space Grotesk", Arial, sans-serif;
-  font-size: clamp(17px, 1.7vw, 20px);
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -.055em;
-  white-space: nowrap;
-}
-
-.preloader__symbol {
-  width: 23px;
-  height: 21px;
+.preloader__logo {
+  display: block;
+  width: 140px;
+  height: 48px;
+  object-fit: cover;
 }
 
 .preloader--leaving {
@@ -109,8 +99,7 @@
 @media (max-width: 480px) {
   .preloader__orbit { width: min(46vw, 158px); }
   .preloader::before { width: min(46vw, 300px); }
-  .preloader__symbol { width: 21px; height: 19px; }
-  .preloader__brand > span { font-size: 18px; }
+  .preloader__logo { width: 130px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

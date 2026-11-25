@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#06030f" />
     <meta name="description" content="VedanAI is a software agency helping ambitious businesses build modern websites, static sites, backend systems, and grow with expert SEO." />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/images/icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -79,25 +79,11 @@
         transform-origin: center;
         animation: preloaderOrbit 2.7s linear infinite;
       }
-      .preloader__brand {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        color: #f8fbff;
-        font-family: "Space Grotesk", Arial, sans-serif;
-      }
-      .preloader__brand > span {
-        font-size: clamp(17px, 1.7vw, 20px);
-        font-weight: 500;
-        line-height: 1;
-        letter-spacing: -.055em;
-        white-space: nowrap;
-      }
-      .preloader__symbol {
-        width: 23px;
-        height: 21px;
+      .preloader__logo {
         display: block;
+        width: 140px;
+        height: 48px;
+        object-fit: cover;
       }
       .preloader--leaving {
         opacity: 0;
@@ -114,8 +100,7 @@
       @media (max-width: 480px) {
         .preloader__orbit { width: min(46vw, 158px); }
         .preloader::before { width: min(46vw, 300px); }
-        .preloader__symbol { width: 21px; height: 19px; }
-        .preloader__brand > span { font-size: 18px; }
+        .preloader__logo { width: 130px; }
       }
       @media (prefers-reduced-motion: reduce) {
         .preloader__progress { animation: none; opacity: .35; }
@@ -130,13 +115,7 @@
           <circle class="preloader__progress" cx="160" cy="160" r="157" />
         </svg>
         <div class="preloader__brand">
-          <svg class="preloader__symbol" viewBox="0 0 34 30" aria-hidden="true">
-            <path d="M2 24h10l6-7H8z" fill="#28d3ec" />
-            <path d="M8 16h11l6-8H14z" fill="#00efa6" />
-            <path d="M16 7h10l5-6H21z" fill="#7b81ff" />
-            <path d="M1 28h12l3-3H4z" fill="#3578f2" />
-          </svg>
-          <span>VedanAI</span>
+          <img class="preloader__logo" src="/images/logo.png" alt="preloader__logo" />
         </div>
       </div>
     </div>

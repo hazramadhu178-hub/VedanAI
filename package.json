@@ -32,7 +32,8 @@
     "tailwindcss": "4.1.17",
     "typescript": "5.9.3",
     "vite": "7.3.7",
-    "vite-plugin-singlefile": "2.3.0"
+    "vite-plugin-singlefile": "2.3.0",
+    "wrangler": "^4.168.0"
   },
   "overrides": {
     "@modelcontextprotocol/server": "^2.4.0"
@@ -40,6 +41,7 @@
   "allowScripts": {
     "@vgpu/adapter-node@0.6.0": true,
     "esbuild@0.28.2": true,
-    "webgpu@0.4.0": true
+    "webgpu@0.4.0": true,
+    "workerd@1.20261123.1": true
   }
 }

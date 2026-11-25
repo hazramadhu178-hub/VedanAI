@@ -88,7 +88,7 @@ export default function AboutPage() {
             Business Forward.
           </h1>
           <p className="about-hero__lead">
-            We are a full-service software studio helping ambitious businesses modernize, launch and grow through web development, backend engineering, and search-driven strategy.
+            hello  We are a full-service software studio helping ambitious businesses modernize, launch and grow through web development, backend engineering, and search-driven strategy.
           </p>
           <div className="about-hero__actions">
             <ButtonLink href="#/services">EXPLORE OUR SERVICES</ButtonLink>

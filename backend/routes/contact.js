@@ -3,30 +3,34 @@ import express from "express";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
-dotenv.config({ override: true, path: ".env" });
+dotenv.config({ path: new URL("../.env", import.meta.url) });
 
 const router = express.Router();
 const emailUser = process.env.EMAIL_USER?.trim();
 const emailPass = process.env.EMAIL_PASS?.replace(/\s+/g, "");
 const emailTo = process.env.EMAIL_TO?.trim();
 
-if (!emailUser || !emailPass || !emailTo) {
-  throw new Error(
-    "Contact email is not configured. Set EMAIL_USER, EMAIL_PASS, and EMAIL_TO in .env."
-  );
-}
-
-// Gmail configuration
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: emailUser,
-    pass: emailPass,
-  },
-});
+const transporter =
+  emailUser && emailPass && emailTo
+    ? nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: emailUser,
+          pass: emailPass,
+        },
+      })
+    : null;
 
 // POST /api/contact
 router.post("/", async (req, res) => {
+  if (!transporter || !emailTo) {
+    console.error("Contact email is not configured.");
+    return res.status(503).json({
+      success: false,
+      message: "The contact service is temporarily unavailable.",
+    });
+  }
+
   try {
     const {
       name,

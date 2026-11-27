@@ -299,8 +299,8 @@ export default function App() {
       >
         <Navbar page={page} />
 
-        <main>
-          <Suspense fallback={null}>
+        <Suspense fallback={null}>
+          <main>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
@@ -309,10 +309,9 @@ export default function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
-          </Suspense>
-        </main>
-
-        <Footer />
+          </main>
+          <Footer />
+        </Suspense>
       </div>
     </>
   );

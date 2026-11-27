@@ -46,6 +46,71 @@ const pageMetadata = {
   },
 };
 
+const organizationId = "https://vedanai.pages.dev/#organization";
+const homepageServiceStructuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://vedanai.pages.dev/#service-ecommerce-development",
+    name: "E-commerce Development",
+    serviceType: "E-commerce development",
+    description:
+      "We create online stores that boost sales and customer engagement, with smooth checkout flows, product management, and performance tuning. Our builds help brands sell more and grow faster.",
+    url: "https://vedanai.pages.dev/#project-commerce",
+    provider: { "@id": organizationId },
+  },
+];
+const servicesStructuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://vedanai.pages.dev/services#service-web-development",
+    name: "Web Development",
+    serviceType: "Web development",
+    description: "Custom websites and web apps built for speed and growth.",
+    url: "https://vedanai.pages.dev/services",
+    provider: { "@id": organizationId },
+  },
+  {
+    "@type": "Service",
+    "@id": "https://vedanai.pages.dev/services#service-static-websites",
+    name: "Static Websites",
+    serviceType: "Static website development",
+    description:
+      "Lightning-fast static sites optimized for performance and SEO.",
+    url: "https://vedanai.pages.dev/services",
+    provider: { "@id": organizationId },
+  },
+  {
+    "@type": "Service",
+    "@id": "https://vedanai.pages.dev/services#service-backend-development",
+    name: "Backend Development",
+    serviceType: "Backend development",
+    description:
+      "Scalable APIs, secure databases and reliable infrastructure.",
+    url: "https://vedanai.pages.dev/services",
+    provider: { "@id": organizationId },
+  },
+  {
+    "@type": "Service",
+    "@id": "https://vedanai.pages.dev/services#service-seo",
+    name: "SEO Services",
+    serviceType: "Search engine optimization",
+    description:
+      "Boost rankings and turn search traffic into real customers.",
+    url: "https://vedanai.pages.dev/services",
+    provider: { "@id": organizationId },
+  },
+  {
+    "@type": "Service",
+    "@id": "https://vedanai.pages.dev/services#service-maintenance",
+    name: "Website Maintenance and Support",
+    serviceType: "Website maintenance",
+    description:
+      "Updates, monitoring, backups and performance checks after your website goes live — so it stays fast, secure and reliable.",
+    url: "https://vedanai.pages.dev/services#maintenance",
+    provider: { "@id": organizationId },
+  },
+];
+
 export default function App() {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
@@ -72,6 +137,34 @@ export default function App() {
       "href",
       new URL(metadata.path, "https://vedanai.pages.dev").href
     );
+  }, [page]);
+
+  useEffect(() => {
+    const scriptId = "vedanai-services-structured-data";
+    let script = document.getElementById(scriptId);
+    const routeServices =
+      page === "home"
+        ? homepageServiceStructuredData
+        : page === "services"
+          ? servicesStructuredData
+          : [];
+
+    if (!routeServices.length) {
+      script?.remove();
+      return;
+    }
+
+    if (!script) {
+      script = document.createElement("script");
+      script.id = scriptId;
+      script.type = "application/ld+json";
+      document.head.appendChild(script);
+    }
+
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": routeServices,
+    });
   }, [page]);
 
   useEffect(() => {

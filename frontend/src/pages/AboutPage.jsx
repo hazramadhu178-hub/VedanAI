@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import Icon from "../components/Icons.jsx";
-import { ArrowIcon, ButtonLink, SectionLabel } from "../components/Shared.jsx";
+import {
+  ArrowIcon,
+  ButtonLink,
+  responsiveImageProps,
+  SectionLabel,
+} from "../components/Shared.jsx";
+import "../styles/about.css";
 
 const stats = [
   { value: "5K+", label: "Projects Successfully Delivered" },
@@ -102,7 +108,13 @@ export default function AboutPage() {
         {/* ---------- Story ---------- */}
         <div className="about-story" id="about-story" data-reveal>
           <div className="about-story__media">
-            <img src="/images/about-robotics.webp" alt="Industrial robotic arm in a modern automated workspace" loading="lazy" decoding="async" />
+            <img
+              src="/images/about-robotics.webp"
+              {...responsiveImageProps("/images/about-robotics.webp", "(max-width: 700px) 90vw, 50vw")}
+              alt="Industrial robotic arm in a modern automated workspace"
+              loading="lazy"
+              decoding="async"
+            />
             <div className="about-story__badge">
               <strong>12+</strong>
               <span>Years of<br />Excellence</span>

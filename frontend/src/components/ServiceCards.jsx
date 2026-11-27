@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowIcon } from "./Shared.jsx";
+import { ArrowIcon, responsiveImageProps } from "./Shared.jsx";
 
 const capabilities = [
   {
@@ -147,7 +147,13 @@ export default function ServiceCards() {
                         <span>#{item.id}</span>
                       </span>
                       <span className="hang-card__media">
-                        <img src={item.image} alt={item.imageAlt} loading="lazy" decoding="async" />
+                        <img
+                          src={item.image}
+                          {...responsiveImageProps(item.image, "(max-width: 700px) 82vw, 300px")}
+                          alt={item.imageAlt}
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </span>
                       <span className="hang-card__identity">
                         <strong>{item.title}</strong>
@@ -167,7 +173,13 @@ export default function ServiceCards() {
                         <span className="hang-card__pulse-chip" aria-hidden="true">AI</span>
                       </span>
                       <span className="hang-card__mini-head">
-                        <img src={item.image} alt="" loading="lazy" decoding="async" />
+                        <img
+                          src={item.image}
+                          {...responsiveImageProps(item.image, "48px")}
+                          alt=""
+                          loading="lazy"
+                          decoding="async"
+                        />
                         <span>
                           <strong>{item.title}</strong>
                           <span>{item.role}</span>

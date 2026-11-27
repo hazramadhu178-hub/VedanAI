@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowIcon, ButtonLink, SectionLabel } from "../components/Shared.jsx";
+import { ArrowIcon, ButtonLink, responsiveImageProps, SectionLabel } from "../components/Shared.jsx";
+import "../styles/comingsoon.css";
 
 const teasers = [
   { image: "/images/project-nlp.webp", title: "Web Platform", category: "Web Development" },
@@ -93,7 +94,13 @@ export default function ProjectsPage() {
           <div className="coming-teasers__grid">
             {teasers.map(({ image, title, category }) => (
               <article className="teaser-card" key={title}>
-                <img src={image} alt="" loading="lazy" decoding="async" />
+                <img
+                  src={image}
+                  {...responsiveImageProps(image, "(max-width: 700px) 90vw, 33vw")}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className="teaser-card__overlay">
                   <span className="teaser-card__badge">Coming Soon</span>
                   <div>

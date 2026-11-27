@@ -70,7 +70,7 @@ h3 { letter-spacing: -.042em; }
 .neon-button__arrow svg { width: 16px; height: 16px; }
 .icon-disc { display: grid; place-items: center; flex: none; border-radius: 50%; color: var(--cyan); background: radial-gradient(circle at 40% 38%, color-mix(in srgb, var(--cyan) 28%, var(--surface)) 0, var(--surface-2) 70%); box-shadow: inset 0 0 13px color-mix(in srgb, var(--cyan) 20%, transparent), 0 0 0 1px var(--border); }
 .line-icon { width: 45%; height: 45%; }
-.heading-capsule { display: inline-block; width: 195px; height: 47px; flex: none; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--page-deep) 12%, transparent), color-mix(in srgb, var(--page-deep) 25%, transparent)), url("/images/about-processor.webp") center 45% / cover; box-shadow: inset 0 0 22px color-mix(in srgb, var(--page-deep) 65%, transparent); opacity: .72; }
+.heading-capsule { display: inline-block; width: 195px; height: 47px; flex: none; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--page-deep) 12%, transparent), color-mix(in srgb, var(--page-deep) 25%, transparent)), url("/images/about-processor-390.webp") center 45% / cover; box-shadow: inset 0 0 22px color-mix(in srgb, var(--page-deep) 65%, transparent); opacity: .72; }
 
 [data-reveal] { opacity: 1; }
 [data-reveal].is-visible { animation: revealRise .8s cubic-bezier(.2, .8, .2, 1) both; }

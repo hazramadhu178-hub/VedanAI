@@ -1,4 +1,4 @@
-import { ButtonLink } from "./Shared.jsx";
+import { ButtonLink, responsiveImageProps } from "./Shared.jsx";
 import ServiceCards from "./ServiceCards.jsx";
 
 const partners = ["OpenAI", "Microsoft", "NVIDIA", "Google Cloud", "AWS", "Anthropic"];
@@ -27,8 +27,13 @@ export default function Hero() {
       <figure className="hero__hands">
         <img
           src="/images/hero-hands.webp"
+          {...responsiveImageProps(
+            "/images/hero-hands.webp",
+            "(max-width: 1240px) 100vw, 1240px"
+          )}
           alt="A metallic robotic hand and a human hand reaching toward each other"
           fetchPriority="high"
+          loading="eager"
         />
       </figure>
 

@@ -31,8 +31,6 @@
 .project-showcase__technologies { display: flex; align-items: center; gap: 23px; margin-top: 39px; color: var(--text); font-size: 13px; }
 .project-showcase__technologies > div { display: flex; gap: 9px; }
 .tech-mark { display: grid; place-items: center; width: 39px; height: 39px; border: 1px solid #fff; border-radius: 50%; color: #13213d; background: #fff; font-family: "Space Grotesk", Arial, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: -.08em; }
-.tech-mark:nth-child(2) { color: var(--text-muted); }
-.tech-mark:nth-child(3) { color: var(--text-soft); }
 .project-showcase__button { margin-top: auto; font-size: 11px; }
 
 .projects-section__showcases[data-layered] {

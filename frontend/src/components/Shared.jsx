@@ -1,6 +1,37 @@
 
 import { Link } from "react-router-dom";
 
+const responsiveImages = {
+  "/images/about-humanoid.webp": { width: 1024, height: 1536, candidates: [640, 800] },
+  "/images/about-processor.webp": { width: 1672, height: 941, candidates: [640, 960] },
+  "/images/about-robotics.webp": { width: 1774, height: 887, candidates: [640, 960] },
+  "/images/hero-hands.webp": { width: 1672, height: 941, candidates: [640, 960] },
+  "/images/news-compute.webp": { width: 1672, height: 941, candidates: [640, 960] },
+  "/images/news-interface.webp": { width: 1254, height: 1254, candidates: [640, 960] },
+  "/images/project-commerce.webp": { width: 1672, height: 941, candidates: [640, 960] },
+  "/images/project-data.webp": { width: 1672, height: 941, candidates: [640, 960] },
+  "/images/project-nlp.webp": { width: 1672, height: 941, candidates: [640, 960] },
+  "/images/project-vision.webp": { width: 1672, height: 941, candidates: [640, 960] },
+};
+
+export function responsiveImageProps(src, sizes) {
+  const image = responsiveImages[src];
+  if (!image) return {};
+
+  const base = src.slice(0, -5);
+  const candidates = [
+    ...image.candidates.map((width) => `${base}-${width}.webp ${width}w`),
+    `${src} ${image.width}w`,
+  ];
+
+  return {
+    width: image.width,
+    height: image.height,
+    srcSet: candidates.join(", "),
+    sizes,
+  };
+}
+
 export function Brand({ footer = false }) {
   return (
     <Link
@@ -8,7 +39,7 @@ export function Brand({ footer = false }) {
       to="/"
       aria-label="VedanAI, back to home"
     >
-      <img className="brand-logo" src="/images/logo.png" alt="" />
+      <img className="brand-logo" src="/images/logo.webp" alt="" width="501" height="498" />
     </Link>
   );
 }

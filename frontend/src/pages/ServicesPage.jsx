@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import Icon from "../components/Icons.jsx";
 import { ArrowIcon, ButtonLink } from "../components/Shared.jsx";
 import MaintenanceSection from "../components/MaintenanceSection.jsx";
+import "../styles/services.css";
+import "../styles/maintenance.css";
 
 const checks = ["Customizable", "Peak Performance", "Top Security"];
 const partners = ["OpenAI", "Microsoft", "NVIDIA", "Google Cloud", "AWS", "Anthropic"];
@@ -119,9 +121,9 @@ function FeaturePreview({ type }) {
     return (
       <div className="service-preview service-preview--team" aria-hidden="true">
         <div className="service-preview__avatars">
-          <img src="/images/avatar-riya.jpg" alt="" loading="lazy" decoding="async" />
-          <img src="/images/avatar-miguel.jpg" alt="" loading="lazy" decoding="async" />
-          <img src="/images/avatar-sebastian.jpg" alt="" loading="lazy" decoding="async" />
+          <img src="/images/avatar-riya.jpg" alt="" width="240" height="240" loading="lazy" decoding="async" />
+          <img src="/images/avatar-miguel.jpg" alt="" width="240" height="240" loading="lazy" decoding="async" />
+          <img src="/images/avatar-sebastian.jpg" alt="" width="240" height="240" loading="lazy" decoding="async" />
           <span>+8</span>
         </div>
         <div className="service-preview__invite"><strong>Invite friends to your company</strong><span>Share workspace access</span></div>
@@ -134,9 +136,9 @@ function FeaturePreview({ type }) {
     return (
       <div className="service-preview service-preview--chat" aria-hidden="true">
         <div className="service-preview__chat-head"><span>Project Room</span><span>Today</span></div>
-        <div className="service-preview__bubble service-preview__bubble--left"><img src="/images/avatar-riya.jpg" alt="" loading="lazy" decoding="async" /><span>How can I help directly from the support team?</span></div>
-        <div className="service-preview__bubble service-preview__bubble--right"><span>Connect with our support agents who are ready to assist.</span><img src="/images/avatar-miguel.jpg" alt="" loading="lazy" decoding="async" /></div>
-        <div className="service-preview__bubble service-preview__bubble--left"><img src="/images/avatar-sebastian.jpg" alt="" loading="lazy" decoding="async" /><span>Great, I will update the workflow now.</span></div>
+        <div className="service-preview__bubble service-preview__bubble--left"><img src="/images/avatar-riya.jpg" alt="" width="240" height="240" loading="lazy" decoding="async" /><span>How can I help directly from the support team?</span></div>
+        <div className="service-preview__bubble service-preview__bubble--right"><span>Connect with our support agents who are ready to assist.</span><img src="/images/avatar-miguel.jpg" alt="" width="240" height="240" loading="lazy" decoding="async" /></div>
+        <div className="service-preview__bubble service-preview__bubble--left"><img src="/images/avatar-sebastian.jpg" alt="" width="240" height="240" loading="lazy" decoding="async" /><span>Great, I will update the workflow now.</span></div>
       </div>
     );
   }

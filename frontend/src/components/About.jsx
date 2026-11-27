@@ -1,4 +1,4 @@
-import { SectionLabel } from "./Shared.jsx";
+import { responsiveImageProps, SectionLabel } from "./Shared.jsx";
 
 const gallery = [
   {
@@ -46,7 +46,13 @@ function MarqueeTrack({ items, hidden = false }) {
           className={`about-gallery__frame about-gallery__frame--${image.variant} about-gallery__frame--${(index % 3) + 1}`}
           key={`${hidden ? "dup" : "main"}-${image.src}`}
         >
-          <img src={image.src} alt={hidden ? "" : image.alt} loading="lazy" decoding="async" />
+          <img
+            src={image.src}
+            {...responsiveImageProps(image.src, "(max-width: 700px) 86vw, 50vw")}
+            alt={hidden ? "" : image.alt}
+            loading="lazy"
+            decoding="async"
+          />
           <div className="about-gallery__sheen" aria-hidden="true" />
           <figcaption className="about-gallery__overlay">
             <span className="about-gallery__tag">{image.tag}</span>

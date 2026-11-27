@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { responsiveImageProps } from "./Shared.jsx";
 
 export default function ContentModal({ item, label, onClose }) {
   const closeRef = useRef(null);
@@ -42,7 +43,12 @@ export default function ContentModal({ item, label, onClose }) {
     <div className="content-modal__backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <div className="content-modal" role="dialog" aria-modal="true" aria-labelledby="content-modal-title">
         <button className="content-modal__close" type="button" onClick={onClose} ref={closeRef} aria-label="Close details">Close <span aria-hidden="true">x</span></button>
-        <img className="content-modal__image" src={item.image} alt="" />
+        <img
+          className="content-modal__image"
+          src={item.image}
+          {...responsiveImageProps(item.image, "(max-width: 850px) 100vw, 850px")}
+          alt=""
+        />
         <div className="content-modal__body">
           <p className="section-label">{label}</p>
           <h2 id="content-modal-title">{item.title}</h2>

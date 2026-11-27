@@ -1,24 +1,9 @@
 import { useEffect, useState } from "react";
 
-const MINIMUM_DISPLAY_TIME = 1050;
-const MAXIMUM_WAIT_TIME = 2500;
-const EXIT_DURATION = 550;
+const MINIMUM_DISPLAY_TIME = 200;
+const EXIT_DURATION = 350;
 
 const wait = (duration) => new Promise((resolve) => window.setTimeout(resolve, duration));
-
-function waitForPageLoad() {
-  if (document.readyState === "complete") return Promise.resolve();
-  return new Promise((resolve) => window.addEventListener("load", resolve, { once: true }));
-}
-
-function waitForHeroImage() {
-  const heroImage = document.querySelector(".hero__hands img");
-  if (!heroImage || heroImage.complete) return Promise.resolve();
-  return new Promise((resolve) => {
-    heroImage.addEventListener("load", resolve, { once: true });
-    heroImage.addEventListener("error", resolve, { once: true });
-  });
-}
 
 export default function Preloader({ onFinish }) {
   const [hasBoot] = useState(() => Boolean(document.getElementById("boot-preloader")));
@@ -28,17 +13,10 @@ export default function Preloader({ onFinish }) {
     let mounted = true;
     let exitTimer;
     const bootEl = document.getElementById("boot-preloader");
-    const startedAt = performance.now();
     const previousOverflow = document.body.style.overflow;
-    const fontsReady = document.fonts?.ready || Promise.resolve();
     document.body.style.overflow = "hidden";
 
-    Promise.race([
-      Promise.allSettled([waitForPageLoad(), waitForHeroImage(), fontsReady]),
-      wait(MAXIMUM_WAIT_TIME),
-    ]).then(async () => {
-      const remainingTime = Math.max(0, MINIMUM_DISPLAY_TIME - (performance.now() - startedAt));
-      await wait(remainingTime);
+    wait(MINIMUM_DISPLAY_TIME).then(() => {
       if (!mounted) return;
       if (bootEl) bootEl.classList.add("preloader--leaving");
       else setLeaving(true);

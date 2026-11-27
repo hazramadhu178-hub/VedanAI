@@ -1,6 +1,6 @@
 import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowIcon, ButtonLink, SectionLabel } from "./Shared.jsx";
+import { ArrowIcon, ButtonLink, responsiveImageProps, SectionLabel } from "./Shared.jsx";
 import ContentModal from "./ContentModal.jsx";
 
 const projects = [
@@ -129,7 +129,14 @@ export default function Projects() {
               <div className="project-stack__anchor" id={project.id} />
               <article className={`project-showcase project-showcase--${index + 1} ${index % 2 ? "project-showcase--right" : ""}`} aria-labelledby={`${project.id}-title`}>
                 <div className="project-showcase__frame">
-                  <img className="project-showcase__image" src={project.image} alt="" loading="lazy" decoding="async" />
+                  <img
+                    className="project-showcase__image"
+                    src={project.image}
+                    {...responsiveImageProps(project.image, "(max-width: 1640px) 100vw, 1640px")}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className="project-showcase__scrim" />
                   <div className="project-showcase__content">
                     <h3 id={`${project.id}-title`}>{project.title}</h3>

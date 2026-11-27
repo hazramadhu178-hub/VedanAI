@@ -17,7 +17,7 @@
             "url": "https://vedanai.pages.dev/",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://vedanai.pages.dev/images/logo.png"
+              "url": "https://vedanai.pages.dev/images/logo.webp"
             },
             "email": "hello@vedanai.com",
             "description": "We are a full-service software studio helping ambitious businesses modernize, launch and grow through web development, backend engineering, and search-driven strategy."
@@ -33,6 +33,22 @@
             "inLanguage": "en"
           }
         ]
+      }
+    </script>
+    <link rel="ard" href="/.well-known/ard.json" type="application/json" />
+    <script>
+      if (window.location.pathname === "/") {
+        const heroPreload = document.createElement("link");
+        heroPreload.rel = "preload";
+        heroPreload.as = "image";
+        heroPreload.href = "/images/hero-hands.webp";
+        heroPreload.setAttribute(
+          "imagesrcset",
+          "/images/hero-hands-640.webp 640w, /images/hero-hands-960.webp 960w, /images/hero-hands.webp 1672w"
+        );
+        heroPreload.setAttribute("imagesizes", "(max-width: 1240px) 100vw, 1240px");
+        heroPreload.setAttribute("fetchpriority", "high");
+        document.head.appendChild(heroPreload);
       }
     </script>
     <link rel="icon" type="image/png" href="/images/icon.png" />
@@ -66,7 +82,7 @@
         background: #06030f;
         opacity: 1;
         visibility: visible;
-        transition: opacity .55s cubic-bezier(.4, 0, .2, 1), visibility .55s;
+        transition: opacity .35s cubic-bezier(.4, 0, .2, 1), visibility .35s;
       }
       .preloader::before {
         content: "";
@@ -122,7 +138,7 @@
       }
       .preloader--leaving .preloader__orbit {
         transform: scale(.96);
-        transition: transform .55s cubic-bezier(.4, 0, .2, 1);
+        transition: transform .35s cubic-bezier(.4, 0, .2, 1);
       }
       @keyframes preloaderOrbit {
         to { transform: rotate(360deg); }
@@ -145,7 +161,7 @@
           <circle class="preloader__progress" cx="160" cy="160" r="157" />
         </svg>
         <div class="preloader__brand">
-          <img class="preloader__logo" src="/images/logo.png" alt="" />
+          <img class="preloader__logo" src="/images/logo.webp" alt="" width="501" height="498" />
         </div>
       </div>
     </div>

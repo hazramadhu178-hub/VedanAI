@@ -7,6 +7,11 @@ import Mission from "../components/Mission.jsx";
 import Projects from "../components/Projects.jsx";
 import Testimonials from "../components/Testimonials.jsx";
 import TrustSection from "../components/TrustSection.jsx";
+import "../styles/hero.css";
+import "../styles/sections.css";
+import "../styles/services.css";
+import "../styles/about.css";
+import "../styles/projects.css";
 
 export default function HomePage() {
   return (

@@ -235,7 +235,7 @@ export default function AeroBackground({ paused = false }) {
       canvas.style.height = `${height}px`;
       context.setTransform(scale, 0, 0, scale, 0, 0);
       backdrop = makeBackdrop(palette, width, height);
-      render();
+      if (!pausedRef.current || reduced) render();
     };
 
     function render() {

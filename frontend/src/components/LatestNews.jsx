@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { ArrowIcon, ButtonLink, SectionLabel } from "./Shared.jsx";
+import { ArrowIcon, ButtonLink, responsiveImageProps, SectionLabel } from "./Shared.jsx";
 import ContentModal from "./ContentModal.jsx";
 
 const articles = [
@@ -45,7 +45,13 @@ export default function LatestNews() {
           {articles.map((article, index) => (
             <article className={`news-card ${index === 0 ? "news-card--featured" : ""}`} key={article.title} data-reveal>
               <button className="news-card__image" type="button" onClick={() => setSelectedArticle(article)} aria-label={`Read ${article.title}`}>
-                <img src={article.image} alt="" loading="lazy" decoding="async" />
+                <img
+                  src={article.image}
+                  {...responsiveImageProps(article.image, "(max-width: 700px) 90vw, 50vw")}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
               <div className="news-card__body">
                 <p className="news-card__meta"><span>{article.category}</span><span>{article.date}</span></p>

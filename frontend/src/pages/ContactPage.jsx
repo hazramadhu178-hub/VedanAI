@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowIcon, ButtonLink, SectionLabel } from "../components/Shared.jsx";
 import { submitContact } from "../utils/submitContact.js";
+import "../styles/contact.css";
 
 const contactCards = [
   {

@@ -19,7 +19,7 @@ export default function Hero() {
           </p>
           <div className="hero__cta-wrap">
             <span className="hero__cta-glow" aria-hidden="true" />
-            <ButtonLink href="#contact">BEGIN TODAY WITH US</ButtonLink>
+            <ButtonLink to="/contact">BEGIN TODAY WITH US</ButtonLink>
           </div>
         </div>
       </div>

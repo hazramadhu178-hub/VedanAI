@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 export default function ContentModal({ item, label, onClose }) {
   const closeRef = useRef(null);
@@ -47,7 +48,7 @@ export default function ContentModal({ item, label, onClose }) {
           <h2 id="content-modal-title">{item.title}</h2>
           <p className="content-modal__lead">{item.description}</p>
           {item.details?.map((detail) => <p key={detail}>{detail}</p>)}
-          <a className="content-modal__contact" href="#contact" onClick={onClose}>Start a conversation <span aria-hidden="true">&#8599;</span></a>
+          <Link className="content-modal__contact" to="/contact" onClick={onClose}>Start a conversation <span aria-hidden="true">&#8599;</span></Link>
         </div>
       </div>
     </div>

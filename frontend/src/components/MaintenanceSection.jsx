@@ -75,7 +75,7 @@ export default function MaintenanceSection() {
             ))}
           </ul>
 
-          <ButtonLink href="#/contact">GET A SUPPORT PLAN</ButtonLink>
+          <ButtonLink to="/contact">GET A SUPPORT PLAN</ButtonLink>
         </div>
 
         {/* ---------- Live dashboard ---------- */}

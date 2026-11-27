@@ -39,7 +39,7 @@ export default function LatestNews() {
         <div className="news-section__intro" data-reveal>
           <SectionLabel>Our Latest News</SectionLabel>
           <h2 id="news-heading">Our Latest<br />News</h2>
-          <ButtonLink href="#news-articles">VIEW MORE BLOG</ButtonLink>
+          <ButtonLink to="#news-articles">VIEW MORE BLOG</ButtonLink>
         </div>
         <div className="news-articles" id="news-articles">
           {articles.map((article, index) => (

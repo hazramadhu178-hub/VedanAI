@@ -1,4 +1,5 @@
 import { Fragment, useCallback, useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { ArrowIcon, ButtonLink, SectionLabel } from "./Shared.jsx";
 import ContentModal from "./ContentModal.jsx";
 
@@ -114,12 +115,12 @@ export default function Projects() {
         <SectionLabel>Our Projects</SectionLabel>
         <span className="heading-capsule" aria-hidden="true" />
         <h2 id="projects-heading">See the Results That Reflect Our Hard Work</h2>
-        <ButtonLink href="#project-web">VIEW MORE PROJECTS</ButtonLink>
+        <ButtonLink to="#project-web">VIEW MORE PROJECTS</ButtonLink>
       </div>
       <div className="projects-section__showcases" ref={showcaseRef}>
         <nav className="projects-jump" aria-label="Jump to a case study">
           {projects.map((project, index) => (
-            <a href={`#${project.id}`} aria-label={`Go to ${project.title}`} aria-current={index === activeIndex ? "location" : undefined} key={project.id}>{index + 1}</a>
+            <Link to={`#${project.id}`} aria-label={`Go to ${project.title}`} aria-current={index === activeIndex ? "location" : undefined} key={project.id}>{index + 1}</Link>
           ))}
         </nav>
         <div className="project-stack">

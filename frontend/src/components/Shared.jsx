@@ -1,25 +1,43 @@
+
+import { Link } from "react-router-dom";
+
 export function Brand({ footer = false }) {
   return (
-    <a className={`brand ${footer ? "brand--footer" : ""}`} href="#home" aria-label="VedanAI, back to home">
+    <Link
+      className={`brand ${footer ? "brand--footer" : ""}`}
+      to="/"
+      aria-label="VedanAI, back to home"
+    >
       <img className="brand-logo" src="/images/logo.png" alt="" />
-    </a>
+    </Link>
   );
 }
 
 export function ArrowIcon({ className = "" }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
       <path d="M5 19 19 5M8 5h11v11" />
     </svg>
   );
 }
 
-export function ButtonLink({ href, children, className = "", onClick }) {
+export function ButtonLink({ to, children, className = "", onClick }) {
   return (
-    <a className={`neon-button ${className}`} href={href} onClick={onClick}>
+    <Link className={`neon-button ${className}`} to={to} onClick={onClick}>
       <span>{children}</span>
-      <span className="neon-button__arrow"><ArrowIcon /></span>
-    </a>
+      <span className="neon-button__arrow">
+        <ArrowIcon />
+      </span>
+    </Link>
   );
 }
 

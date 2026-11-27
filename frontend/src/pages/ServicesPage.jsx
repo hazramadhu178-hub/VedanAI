@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Icon from "../components/Icons.jsx";
 import { ArrowIcon, ButtonLink } from "../components/Shared.jsx";
 import MaintenanceSection from "../components/MaintenanceSection.jsx";
@@ -165,8 +166,8 @@ export default function ServicesPage() {
             {checks.map((check) => <li key={check}><CheckIcon />{check}</li>)}
           </ul>
           <div className="services-actions">
-            <ButtonLink href="#services-features">EXPLORE SERVICES</ButtonLink>
-            <a className="services-ghost-button" href="#contact">Request a Demo <ArrowIcon /></a>
+            <ButtonLink to="#services-features">EXPLORE SERVICES</ButtonLink>
+            <Link className="services-ghost-button" to="/contact">Request a Demo <ArrowIcon /></Link>
           </div>
 
           <div className="services-trust">

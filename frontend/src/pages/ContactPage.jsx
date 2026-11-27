@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ArrowIcon, ButtonLink, SectionLabel } from "../components/Shared.jsx";
 import { submitContact } from "../utils/submitContact.js";
 
@@ -181,16 +182,16 @@ export default function ContactPage() {
           </p>
 
           <div className="contact-hero__actions">
-            <ButtonLink href="#contact-form">
+            <ButtonLink to="#contact-form">
               START A PROJECT
             </ButtonLink>
 
-            <a
+            <Link
               className="contact-ghost-button"
-              href="#contact-faq"
+              to="#contact-faq"
             >
               Browse our FAQ <ArrowIcon />
-            </a>
+            </Link>
           </div>
         </div>
 

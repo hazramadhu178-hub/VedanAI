@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ArrowIcon, ButtonLink, SectionLabel } from "../components/Shared.jsx";
 
 const teasers = [
@@ -63,8 +64,8 @@ export default function ProjectsPage() {
           </p>
 
           <div className="coming-hero__actions">
-            <ButtonLink href="#/services">EXPLORE OUR SERVICES</ButtonLink>
-            <a className="coming-ghost-button" href="#/contact">Talk to our team <ArrowIcon /></a>
+            <ButtonLink to="/services">EXPLORE OUR SERVICES</ButtonLink>
+            <Link className="coming-ghost-button" to="/contact">Talk to our team <ArrowIcon /></Link>
           </div>
         </div>
 

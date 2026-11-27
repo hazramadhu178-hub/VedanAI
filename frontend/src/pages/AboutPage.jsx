@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Icon from "../components/Icons.jsx";
 import { ArrowIcon, ButtonLink, SectionLabel } from "../components/Shared.jsx";
 
@@ -91,8 +92,8 @@ export default function AboutPage() {
             We are a full-service software studio helping ambitious businesses modernize, launch and grow through web development, backend engineering, and search-driven strategy.
           </p>
           <div className="about-hero__actions">
-            <ButtonLink href="#/services">EXPLORE OUR SERVICES</ButtonLink>
-            <a className="about-ghost-button" href="#contact">Talk to our team <ArrowIcon /></a>
+            <ButtonLink to="/services">EXPLORE OUR SERVICES</ButtonLink>
+            <Link className="about-ghost-button" to="/contact">Talk to our team <ArrowIcon /></Link>
           </div>
 
 
@@ -188,7 +189,7 @@ export default function AboutPage() {
             <h2>Let&rsquo;s Build Something<br />Great Together</h2>
             <p>Tell us about your project and we&rsquo;ll map the fastest path from idea to launch.</p>
           </div>
-          <ButtonLink href="#contact">START A CONVERSATION</ButtonLink>
+          <ButtonLink to="/contact">START A CONVERSATION</ButtonLink>
         </div>
       </div>
     </section>

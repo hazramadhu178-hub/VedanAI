@@ -1,24 +1,25 @@
+import { Link } from "react-router-dom";
 import { ArrowIcon } from "./Shared.jsx";
 
 const columns = [
   {
     title: "Explore",
     links: [
-      { label: "Home", href: "#home" },
-      { label: "About us", href: "#/about" },
-      { label: "Our services", href: "#/services" },
-      { label: "Our projects", href: "#/projects" },
-      { label: "Latest news", href: "#news" },
+      { label: "Home", to: "/" },
+      { label: "About us", to: "/about" },
+      { label: "Our services", to: "/services" },
+      { label: "Our projects", to: "/projects" },
+      { label: "Latest news", to: "/#news" },
     ],
   },
   {
     title: "Solutions",
     links: [
-      { label: "Web development", href: "#/services" },
-      { label: "Static websites", href: "#/services" },
-      { label: "Backend development", href: "#/services" },
-      { label: "SEO service", href: "#/services" },
-      { label: "Contact us", href: "#/contact" },
+      { label: "Web development", to: "/services" },
+      { label: "Static websites", to: "/services" },
+      { label: "Backend development", to: "/services" },
+      { label: "SEO service", to: "/services" },
+      { label: "Contact us", to: "/contact" },
     ],
   },
 ];
@@ -59,9 +60,9 @@ export default function Footer() {
       <div className="site-container footer-container">
         <div className="footer-main">
           <div className="footer-brand">
-            <a className="footer-brand__logo" href="#home" aria-label="VedanAI, back to home">
+            <Link className="footer-brand__logo" to="/" aria-label="VedanAI, back to home">
               <img src="/images/logo.png" alt="" />
-            </a>
+            </Link>
             <p className="footer-brand__description">
               We design modern software and websites that turn ambitious ideas into measurable momentum. Let&apos;s build what&apos;s next, together.
             </p>
@@ -81,7 +82,7 @@ export default function Footer() {
               <div className="footer-nav__column" key={title}>
                 <h2>{title}</h2>
                 <ul>
-                  {links.map(({ label, href }) => <li key={label}><a href={href}>{label}</a></li>)}
+                  {links.map(({ label, to }) => <li key={label}><Link to={to}>{label}</Link></li>)}
                 </ul>
               </div>
             ))}
@@ -92,16 +93,16 @@ export default function Footer() {
             <div className="footer-contact__details">
               <p>LET&apos;S CONNECT</p>
               <a className="footer-contact__email" href="mailto:hello@vedanai.com">hello@vedanai.com</a>
-              <a className="footer-contact__project" href="#contact">Start a project <ArrowIcon /></a>
+              <Link className="footer-contact__project" to="/contact">Start a project <ArrowIcon /></Link>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
           <span>&copy; {new Date().getFullYear()} VedanAI. All rights reserved.</span>
-          <a className="footer-bottom__top" href="#home" aria-label="Back to top">
+          <Link className="footer-bottom__top" to="/" aria-label="Back to top">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg>
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

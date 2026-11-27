@@ -34,6 +34,7 @@ export default function Hero() {
           alt="A metallic robotic hand and a human hand reaching toward each other"
           fetchPriority="high"
           loading="eager"
+          decoding="sync"
         />
       </figure>
 

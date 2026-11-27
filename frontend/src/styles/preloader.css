@@ -9,7 +9,7 @@
   background: #06030f;
   opacity: 1;
   visibility: visible;
-  transition: opacity .35s cubic-bezier(.4, 0, .2, 1), visibility .35s;
+  transition: opacity .22s cubic-bezier(.4, 0, .2, 1), visibility .22s;
 }
 
 .preloader::before {

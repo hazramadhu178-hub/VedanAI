@@ -3,14 +3,12 @@
 .site-shell--ready .hero h1,
 .site-shell--ready .hero__description,
 .site-shell--ready .hero__cta-wrap,
-.site-shell--ready .hero__hands,
 .site-shell--ready .hero__trust {
   animation: heroChoreo .55s cubic-bezier(.16, 1, .3, 1) both;
 }
 .site-shell--ready .hero h1 { animation-delay: .07s; }
 .site-shell--ready .hero__description { animation-delay: .15s; }
 .site-shell--ready .hero__cta-wrap { animation-delay: .22s; }
-.site-shell--ready .hero__hands { animation-delay: .28s; }
 .site-shell--ready .hero__trust { animation-delay: .34s; }
 @keyframes heroChoreo {
   from { opacity: 0; transform: translate3d(0, 26px, 0) scale(.985); }

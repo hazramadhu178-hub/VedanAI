@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-const MINIMUM_DISPLAY_TIME = 200;
-const EXIT_DURATION = 350;
+const MINIMUM_DISPLAY_TIME = 80;
+const EXIT_DURATION = 220;
 
 const wait = (duration) => new Promise((resolve) => window.setTimeout(resolve, duration));
 

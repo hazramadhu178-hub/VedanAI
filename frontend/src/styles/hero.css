@@ -125,6 +125,9 @@
 .hang-card__sign small { color: var(--text-soft); font-size: 9px; letter-spacing: .1em; }
 .hang-card__sign b { color: var(--green); font-size: 9.5px; font-weight: 700; letter-spacing: .1em; }
 .hang-card__matrix { width: 42px; height: 42px; flex: none; padding: 5px; border: 1px solid var(--border); border-radius: 7px; color: var(--text); background: var(--surface-2); }
+.hang-card__detail-link { position: absolute; z-index: 3; right: 21px; bottom: 21px; opacity: 0; pointer-events: none; }
+.hang-slot--flipped .hang-card__detail-link { opacity: 1; pointer-events: auto; }
+.hang-card__detail-link:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
 
 
 

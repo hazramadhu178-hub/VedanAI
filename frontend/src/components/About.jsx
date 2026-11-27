@@ -19,21 +19,21 @@ const gallery = [
     src: "/images/about-processor.webp",
     alt: "Computer processor and circuit board representing scalable software systems",
     tag: "03 / BACKEND SYSTEMS",
-    title: "Scalable Architecture",
+    title: "Backend Systems",
     variant: "wide",
   },
   {
     src: "/images/news-interface.webp",
     alt: "Abstract illuminated technology ring representing search optimization",
-    tag: "04 / SEO GROWTH",
+    tag: "04 / TECHNICAL SEO",
     title: "Search Optimization",
     variant: "center",
   },
   {
     src: "/images/news-compute.webp",
-    alt: "Futuristic computer hardware module representing cloud infrastructure",
-    tag: "05 / DEPLOYMENT",
-    title: "Cloud Infrastructure",
+    alt: "Futuristic computer hardware module representing software engineering",
+    tag: "05 / SOFTWARE ENGINEERING",
+    title: "Digital Products",
     variant: "wide",
   },
 ];
@@ -69,7 +69,10 @@ export default function About() {
     <section className="about-section" id="about" aria-labelledby="about-heading">
       <div className="site-container about-section__intro" data-reveal>
         <SectionLabel>Who We Are</SectionLabel>
-        <h2 id="about-heading">We Help Businesses Grow and Scale with Smart, Modern Software</h2>
+        <h2 id="about-heading">Custom Web, Backend, and Search Solutions for Business Needs</h2>
+        <p className="about-section__description">
+          VedanAI develops websites and web applications, builds backend functionality, and supports technical SEO. Each solution is shaped around the project brief, with a focus on clear user experiences and maintainable digital tools.
+        </p>
       </div>
       <div className="about-marquee" aria-label="A closer look at our technology">
         <div className="about-marquee__viewport">

@@ -149,6 +149,8 @@
   line-height: 1.65;
 }
 .coming-progress__bars { display: flex; flex-direction: column; gap: 20px; }
+.coming-progress__note { gap: 12px; }
+.coming-progress__note p { padding: 14px 17px; border: 1px solid var(--border); border-radius: 10px; color: var(--text-soft); background: var(--surface-2); font-size: 13px; }
 .coming-bar__head {
   display: flex;
   align-items: center;

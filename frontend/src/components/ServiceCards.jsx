@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ArrowIcon, responsiveImageProps } from "./Shared.jsx";
 
 const capabilities = [
@@ -6,12 +7,13 @@ const capabilities = [
     id: "01",
     label: "CAPABILITY · 01",
     title: "Custom Web Development",
-    role: "Full-Stack Solutions",
+    role: "Websites & Web Applications",
+    path: "/services/web-development",
     image: "/images/about-processor.webp",
     imageAlt: "Computer processor and circuit board representing modern web applications",
-    metric: "RESPONSIVE · 100% CROSS-DEVICE",
-    summary: "Launch fast, responsive websites and web apps built with modern frameworks that convert visitors into customers.",
-    modules: ["Stack / React & Next.js", "UI / Responsive Design"],
+    metric: "SCOPE · PROJECT-SPECIFIC",
+    summary: "Websites and web applications planned around the project's requirements, content, and users.",
+    modules: ["Frontend / Interfaces", "Build / Project requirements"],
     tilt: "-2.4deg",
     drop: "18px",
   },
@@ -20,11 +22,12 @@ const capabilities = [
     label: "CAPABILITY · 02",
     title: "Static Website Design",
     role: "Fast & Optimized Sites",
+    path: "/services/static-website-design",
     image: "/images/about-humanoid.webp",
     imageAlt: "Humanoid robot representing modern software technology",
-    metric: "SPEED · SUB-SECOND LOAD",
-    summary: "Lightning-fast static websites engineered for performance, security and effortless content delivery.",
-    modules: ["Build / Static Hosting", "Core / Lighthouse Optimized"],
+    metric: "FOCUS · STATIC WEB PAGES",
+    summary: "Responsive static websites with focused page structures and performance-conscious asset delivery.",
+    modules: ["Structure / Static pages", "Delivery / Optimized assets"],
     tilt: "1.8deg",
     drop: "34px",
   },
@@ -32,12 +35,13 @@ const capabilities = [
     id: "03",
     label: "CAPABILITY · 03",
     title: "Backend Development",
-    role: "Scalable APIs & Databases",
+    role: "Server-Side Functionality",
+    path: "/services/backend-development",
     image: "/images/about-robotics.webp",
     imageAlt: "Industrial robotic arm in a modern automated workspace",
-    metric: "RELIABILITY · 99.9% UPTIME",
-    summary: "Robust APIs, secure databases and scalable server architecture that power your product behind the scenes.",
-    modules: ["API / REST & GraphQL", "Data / Secure Databases"],
+    metric: "FOCUS · SERVER-SIDE LOGIC",
+    summary: "Backend functionality and API development shaped to the needs of your application.",
+    modules: ["Runtime / Node.js", "Framework / Express"],
     tilt: "-1.1deg",
     drop: "12px",
   },
@@ -46,11 +50,12 @@ const capabilities = [
     label: "CAPABILITY · 04",
     title: "SEO & Digital Growth",
     role: "Search Visibility",
+    path: "/services/seo-digital-growth",
     image: "/images/news-compute.webp",
     imageAlt: "Futuristic computer hardware module",
-    metric: "GROWTH · TOP-RANKING PAGES",
-    summary: "Data-driven SEO strategies that lift your rankings, grow organic traffic and turn searches into revenue.",
-    modules: ["Search / On-Page SEO", "Growth / Analytics & Reporting"],
+    metric: "FOCUS · TECHNICAL SEO",
+    summary: "Technical and on-page improvements that help search engines understand your website.",
+    modules: ["Structure / Metadata", "Review / Search fundamentals"],
     tilt: "2.2deg",
     drop: "26px",
   },
@@ -86,18 +91,18 @@ export default function ServiceCards() {
             VedanAI &middot; SOFTWARE CAPABILITIES
           </p>
           <h2 className="feature-grid__heading" id="capabilities-heading">
-            Built for intelligent
-            <span>enterprise scale.</span>
+            Software services
+            <span>shaped around your needs.</span>
           </h2>
         </div>
 
         <div className="feature-grid__aside">
             <p className="feature-grid__lead">
-            Modular software systems, engineered together. Focused engineering designed to turn complexity into momentum.
+            Web, backend, and technical SEO services scoped to the goals and requirements of each project.
           </p>
           <p className="feature-grid__badge">
             <span className="feature-grid__dot feature-grid__dot--green" aria-hidden="true" />
-            04 SYSTEMS, ONE CORE
+            04 SERVICE AREAS
           </p>
         </div>
       </div>
@@ -123,7 +128,7 @@ export default function ServiceCards() {
             const isDetail = flippedIndex === index;
             return (
               <div
-                className={`hang-slot hang-slot--${index + 1}`}
+                className={`hang-slot hang-slot--${index + 1} ${isDetail ? "hang-slot--flipped" : ""}`}
                 style={{ "--hang-tilt": item.tilt, "--hang-drop": item.drop }}
                 key={item.id}
               >
@@ -133,7 +138,7 @@ export default function ServiceCards() {
                   className="hang-card"
                   onClick={() => handleToggle(index)}
                   aria-pressed={isDetail}
-                  aria-label={`${item.title}, flip card`}
+                  aria-label={`Flip ${item.title} card`}
                   aria-describedby={isDetail ? `capability-${item.id}-description` : undefined}
                 >
                   <span className="hang-card__clasp" aria-hidden="true">
@@ -199,13 +204,21 @@ export default function ServiceCards() {
                       <span className="hang-card__back-foot">
                         <span className="hang-card__sign">
                           <small>VedanAI // {item.id}</small>
-                          <b>CLICK TO FLIP</b>
+                          <b>OPEN SERVICE DETAILS</b>
                         </span>
-                        <MatrixGlyph />
                       </span>
                     </span>
                   </span>
                 </button>
+                <Link
+                  className="hang-card__detail-link"
+                  to={item.path}
+                  aria-label={`Read about ${item.title}`}
+                  aria-hidden={!isDetail}
+                  tabIndex={isDetail ? undefined : -1}
+                >
+                  <MatrixGlyph />
+                </Link>
               </div>
             );
           })}

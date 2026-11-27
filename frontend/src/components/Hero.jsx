@@ -1,7 +1,7 @@
 import { ButtonLink, responsiveImageProps } from "./Shared.jsx";
 import ServiceCards from "./ServiceCards.jsx";
 
-const partners = ["OpenAI", "Microsoft", "NVIDIA", "Google Cloud", "AWS", "Anthropic"];
+const technologies = ["React", "Vite", "JavaScript", "CSS"];
 
 export default function Hero() {
   return (
@@ -15,7 +15,7 @@ export default function Hero() {
             With Smarter Software.
           </h1>
           <p className="hero__description">
-            Unlock growth and efficiency with tailored software solutions. We use modern web development, backend engineering and data-driven strategies to help you innovate and scale.
+            VedanAI is a software development studio providing custom website and web application development, frontend and backend engineering, and technical SEO. We help businesses build practical digital experiences around their requirements.
           </p>
           <div className="hero__cta-wrap">
             <span className="hero__cta-glow" aria-hidden="true" />
@@ -39,10 +39,10 @@ export default function Hero() {
       </figure>
 
       <div className="hero__trust site-container">
-        <p>Trusted by teams of every scale</p>
+        <p>Technologies Used on This Website</p>
         <ul>
-          {partners.map((partner) => (
-            <li key={partner}>{partner}</li>
+          {technologies.map((technology) => (
+            <li key={technology}>{technology}</li>
           ))}
         </ul>
       </div>

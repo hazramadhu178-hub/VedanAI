@@ -7,65 +7,34 @@ import "../styles/contact.css";
 
 const contactCards = [
   {
-    label: "Email us",
+    label: "Email",
     value: "hello@vedanai.com",
-    detail: "We reply within 24 hours",
+    detail: "For project inquiries",
     href: "mailto:hello@vedanai.com",
     icon: "mail",
   },
-  {
-    label: "Call us",
-    value: "+1 (312) 458 2857",
-    detail: "Mon – Fri, 9:00 AM – 6:00 PM",
-    href: "tel:+13124582857",
-    icon: "phone",
-  },
-  {
-    label: "Visit us",
-    value: "4517 Washington Ave.",
-    detail: "United States",
-    href: "https://maps.google.com/?q=Washington+DC",
-    icon: "location",
-  },
-  {
-    label: "Working hours",
-    value: "9:00 AM – 6:00 PM",
-    detail: "Monday to Friday",
-    icon: "clock",
-  },
-];
-
-const socials = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/" },
-  { label: "X / Twitter", href: "https://x.com/" },
-  { label: "Instagram", href: "https://www.instagram.com/" },
-  { label: "YouTube", href: "https://www.youtube.com/" },
 ];
 
 const faqs = [
   {
-    question: "How much does a website project cost?",
-    answer: "Every project is scoped to your goals, so pricing varies. A focused static website typically starts lower, while custom web applications and platforms are quoted based on features and complexity. We provide a clear, detailed estimate before any work begins.",
+    question: "What services does VedanAI provide?",
+    answer: "VedanAI offers web development, static website design, backend development, and technical SEO. Visit the services pages for details about each area.",
   },
   {
-    question: "How long does it take to build a website?",
-    answer: "A marketing or static website usually takes 2–4 weeks. Larger web applications and e-commerce builds typically run 6–12 weeks depending on scope. We share a realistic timeline up front and keep you updated at every milestone.",
+    question: "How do I request a project estimate?",
+    answer: "Use the contact form to share your requirements, preferred service, and relevant project context. Scope and pricing can be discussed once the requirements are understood.",
   },
   {
-    question: "Do you work with startups and small businesses?",
-    answer: "Absolutely. We partner with everyone from early-stage startups to established enterprises. Our approach flexes to fit your stage and budget, without compromising on quality or performance.",
+    question: "What information should I include in my inquiry?",
+    answer: "Describe what you want to build or improve, who it is for, and any important features, integrations, or constraints. You can also include a target timeframe or budget if you have one.",
   },
   {
-    question: "Do you offer ongoing support and maintenance?",
-    answer: "Yes. After launch we offer flexible support plans covering updates, security, performance monitoring, SEO and new feature development — so your product keeps improving long after day one.",
+    question: "Can you work on an existing website or application?",
+    answer: "Send the current site or application details and explain what you would like to change. Feasibility and next steps depend on the technology and project scope.",
   },
   {
-    question: "What technologies do you work with?",
-    answer: "We build with modern, proven tools including React, Next.js, Node.js, TypeScript, PostgreSQL, AWS and Docker. We choose the stack that best fits your project rather than forcing a one-size-fits-all solution.",
-  },
-  {
-    question: "Can you help improve my search rankings?",
-    answer: "Definitely. Our SEO service covers technical optimization, on-page strategy, content guidance and analytics. We focus on sustainable growth that turns search visibility into real, measurable business results.",
+    question: "How can I contact VedanAI?",
+    answer: "Send a message using the form on this page or email hello@vedanai.com.",
   },
 ];
 
@@ -179,7 +148,7 @@ export default function ContactPage() {
           </h1>
 
           <p className="contact-hero__lead">
-            Have a project in mind or just want to explore an idea? Tell us what you&rsquo;re working on and our team will get back to you within 24 hours.
+            Share a little about your project or the digital solution you have in mind.
           </p>
 
           <div className="contact-hero__actions">
@@ -203,10 +172,10 @@ export default function ContactPage() {
           <div className="contact-info">
             <SectionLabel>Contact Information</SectionLabel>
 
-            <h2>Reach Us Anytime</h2>
+            <h2>Get in Touch</h2>
 
             <p className="contact-info__lead">
-              Fill out the form and our team will get back to you within one business day.
+              Send your project inquiry by email or use the form on this page.
             </p>
 
             <div className="contact-info__cards">
@@ -257,25 +226,6 @@ export default function ContactPage() {
               )}
             </div>
 
-            <div className="contact-info__socials">
-              <span>Follow us</span>
-
-              <ul>
-                {socials.map(({ label, href }) => (
-                  <li key={label}>
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${label} (opens in a new tab)`}
-                    >
-                      {label}
-                      <ArrowIcon />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
           <div
@@ -452,25 +402,27 @@ export default function ContactPage() {
                   }`}
                   key={faq.question}
                 >
-                  <button
-                    className="faq-item__trigger"
-                    type="button"
-                    onClick={() =>
-                      setOpenFaq(isOpen ? -1 : index)
-                    }
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-answer-${index}`}
-                  >
-                    <span>{faq.question}</span>
-
-                    <span
-                      className="faq-item__icon"
-                      aria-hidden="true"
+                  <h3 className="faq-item__heading">
+                    <button
+                      className="faq-item__trigger"
+                      type="button"
+                      onClick={() =>
+                        setOpenFaq(isOpen ? -1 : index)
+                      }
+                      aria-expanded={isOpen}
+                      aria-controls={`faq-answer-${index}`}
                     >
-                      <span />
-                      <span />
-                    </span>
-                  </button>
+                      <span>{faq.question}</span>
+
+                      <span
+                        className="faq-item__icon"
+                        aria-hidden="true"
+                      >
+                        <span />
+                        <span />
+                      </span>
+                    </button>
+                  </h3>
 
                   <div
                     className="faq-item__answer"

@@ -56,12 +56,12 @@ export default function TrustSection() {
       <div className="site-container trust-section__grid">
 
         <div className="trust-section__story" data-reveal>
-          <SectionLabel>Our Achievements</SectionLabel>
+          <SectionLabel>What We Offer</SectionLabel>
 
           <h2 id="trust-heading">
-            We Are Trusted
+            Technology Solutions
             <br />
-            Software Agency
+            Built Around Your Business
           </h2>
 
           <div
@@ -71,23 +71,15 @@ export default function TrustSection() {
             V
           </div>
 
-          <div className="trust-stats" aria-label="Our results">
+          <div className="trust-stats" aria-label="Services and technology">
             <div className="trust-stats__item">
-              <strong>5K+</strong>
-              <span>
-                Projects Successfully
-                <br />
-                Delivered
-              </span>
+              <strong>4+</strong>
+              <span>Core Software Services</span>
             </div>
 
             <div className="trust-stats__item">
-              <strong>95%</strong>
-              <span>
-                Client Satisfaction
-                <br />
-                Rate on Our Results
-              </span>
+              <strong>SEO</strong>
+              <span>Technical SEO Services</span>
             </div>
           </div>
         </div>

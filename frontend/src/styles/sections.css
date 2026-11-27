@@ -2,6 +2,7 @@
 .about-section__intro { display: grid; grid-template-columns: 29% 1fr; align-items: start; gap: 12px; }
 .about-section__intro .section-label { margin-top: 16px; }
 .about-section__intro h2 { max-width: 1070px; }
+.about-section__description { grid-column: 2; max-width: 760px; margin-top: 4px; color: var(--text-soft); font-size: 15px; line-height: 1.7; }
 .about-marquee { position: relative; width: 100%; margin-top: 132px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%); }
 .about-marquee__viewport { display: flex; align-items: center; width: max-content; padding: 14px 0 18px; will-change: transform; animation: aboutMarquee 36s linear infinite; }
 .about-marquee:hover .about-marquee__viewport,
@@ -66,6 +67,9 @@
 .mission-grid__side { display: flex; flex-direction: column; justify-content: space-around; gap: 53px; height: 570px; }
 .mission-benefit { display: flex; align-items: center; justify-content: flex-end; gap: 16px; min-height: 91px; padding: 20px 22px; border: 1px solid var(--border); border-radius: 8px; color: var(--text); background: linear-gradient(100deg, var(--surface), var(--surface)); box-shadow: inset 0 1px var(--border), 0 15px 40px rgba(0, 0, 0, .08); font-family: "Space Grotesk", Arial, sans-serif; font-size: 17px; line-height: 1.27; text-align: right; }
 .mission-grid__side--right .mission-benefit { justify-content: flex-start; text-align: left; }
+.mission-benefit__copy { display: flex; min-width: 0; flex-direction: column; gap: 5px; }
+.mission-benefit__copy strong { font: inherit; }
+.mission-benefit__copy small { color: var(--text-soft); font-family: Inter, Arial, sans-serif; font-size: 11px; line-height: 1.4; }
 .mission-benefit__icon { display: grid; flex: none; place-items: center; width: 42px; height: 42px; border-radius: 12px; color: var(--cyan); background: radial-gradient(circle at 35% 30%, var(--surface-2), var(--surface-2) 70%); box-shadow: inset 0 0 10px rgba(19, 93, 174, .37), 0 0 14px rgba(12, 129, 197, .16); }
 .mission-benefit__icon .line-icon { width: 26px; height: 26px; }
 .mission-orbit { display: grid; place-items: center; min-width: 0; height: 620px; }
@@ -321,6 +325,7 @@
   .about-section__intro { grid-template-columns: 1fr; gap: 25px; }
   .about-section__intro .section-label { margin-top: 0; }
   .about-section__intro h2 { max-width: 800px; }
+  .about-section__description { grid-column: 1; margin-top: -12px; }
   .about-marquee { margin-top: 84px; }
   .about-gallery__frame { width: 310px; height: 350px; }
   .about-gallery__frame--center { width: 350px; }

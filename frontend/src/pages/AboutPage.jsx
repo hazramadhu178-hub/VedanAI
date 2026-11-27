@@ -9,36 +9,36 @@ import {
 import "../styles/about.css";
 
 const stats = [
-  { value: "5K+", label: "Projects Successfully Delivered" },
-  { value: "95%", label: "Client Satisfaction Rate" },
-  { value: "12+", label: "Years of Experience" },
-  { value: "60+", label: "Engineers & Designers" },
+  { value: "Web", label: "Web development" },
+  { value: "API", label: "Backend development" },
+  { value: "SEO", label: "Technical SEO" },
+  { value: "UI", label: "User interfaces" },
 ];
 
 const process = [
   {
     title: "Discover",
-    description: "We dig into your goals, users and market to define what success really looks like.",
+    description: "We clarify the project goals, intended users, and requirements.",
     icon: "spark",
   },
   {
     title: "Design",
-    description: "We shape intuitive interfaces and clear architecture before a single line ships.",
+    description: "We plan the interface structure and implementation approach.",
     icon: "layers",
   },
   {
     title: "Develop",
-    description: "Clean, scalable code built with modern frameworks and tested at every stage.",
+    description: "We implement the agreed features and review them against the requirements.",
     icon: "cube",
   },
   {
     title: "Launch",
-    description: "Rigorous QA, performance tuning and a smooth deployment you can count on.",
+    description: "We prepare the agreed work for release and review its behavior.",
     icon: "arrow",
   },
   {
     title: "Grow",
-    description: "Ongoing support, SEO and optimization that keeps your product moving forward.",
+    description: "Follow-up improvements and maintenance can be discussed as part of the project scope.",
     icon: "chart",
   },
 ];
@@ -55,18 +55,18 @@ const values = [
     icon: "network",
   },
   {
-    title: "On-Time Delivery",
-    description: "We ship when we say we will, without cutting corners or compromising on performance.",
+    title: "Quality Assurance",
+    description: "Testing and review are part of the development process, with attention to functionality and performance.",
     icon: "automation",
   },
   {
-    title: "Long-Term Partnership",
-    description: "We build relationships, not just projects — supporting your growth long after launch day.",
+    title: "Ongoing Support",
+    description: "Maintenance and follow-up work can be discussed as part of a project's scope.",
     icon: "heart",
   },
 ];
 
-const stack = ["HTML", "CSS", "Tailwind CSS", "JavaScript", "React", "Node.js", "SQL"];
+const stack = ["React", "Vite", "JavaScript", "CSS", "Node.js", "Express"];
 
 function TechTrack({ hidden = false }) {
   const items = [...stack, ...stack];
@@ -95,7 +95,7 @@ export default function AboutPage() {
             Business Forward.
           </h1>
           <p className="about-hero__lead">
-            We are a full-service software studio helping ambitious businesses modernize, launch and grow through web development, backend engineering, and search-driven strategy.
+            VedanAI is a software development studio offering web development, backend engineering, and technical SEO. We shape each project around its goals, scope, and users.
           </p>
           <div className="about-hero__actions">
             <ButtonLink to="/services">EXPLORE OUR SERVICES</ButtonLink>
@@ -116,23 +116,23 @@ export default function AboutPage() {
               decoding="async"
             />
             <div className="about-story__badge">
-              <strong>12+</strong>
-              <span>Years of<br />Excellence</span>
+              <strong>AI</strong>
+              <span>Software<br />Studio</span>
             </div>
           </div>
           <div className="about-story__content">
             <SectionLabel>Who We Are</SectionLabel>
-            <h2>A Team of Engineers, Designers &amp; Strategists</h2>
+            <h2>Software Development for Practical Business Needs</h2>
             <p>
-              Founded on the belief that great software should feel effortless, VedanAI brings together deep engineering expertise and human-centered design. We partner with startups and enterprises alike to turn complex challenges into fast, reliable products.
+              VedanAI builds websites and web applications, develops backend functionality, and supports technical SEO. Project requirements guide the solution, from the interface to the underlying implementation.
             </p>
             <p>
-              From a first landing page to a full-scale platform, we care about the details that make a difference — performance, accessibility, and results you can measure.
+              Our work focuses on clear user experiences, maintainable code, and performance-conscious delivery.
             </p>
             <ul className="about-story__list">
-              <li><Icon name="shield" />Built for performance &amp; security</li>
-              <li><Icon name="chart" />Optimized for search &amp; growth</li>
-              <li><Icon name="layers" />Designed to scale with you</li>
+              <li><Icon name="shield" />Performance considered in implementation</li>
+              <li><Icon name="chart" />Technical SEO support available</li>
+              <li><Icon name="layers" />Scope shaped around project needs</li>
             </ul>
           </div>
         </div>
@@ -152,7 +152,7 @@ export default function AboutPage() {
           <div className="about-process__intro">
             <SectionLabel>Our Approach</SectionLabel>
             <h2>How We Bring Ideas to Life</h2>
-            <p>A proven, collaborative process that keeps projects on track and clients in the loop from day one.</p>
+            <p>A clear process for understanding requirements, building the solution, and preparing it for release.</p>
           </div>
           <ol className="about-process__grid">
             {process.map(({ title, description, icon }) => (
@@ -186,8 +186,8 @@ export default function AboutPage() {
 
         {/* ---------- Tech stack ---------- */}
         <div className="about-stack" data-reveal>
-          <SectionLabel>Technologies We Work With</SectionLabel>
-          <div className="tech-marquee" role="marquee" aria-label="Technologies we work with, continuously scrolling">
+          <SectionLabel>Technologies in This Project</SectionLabel>
+          <div className="tech-marquee" role="marquee" aria-label="Technologies used in this project, continuously scrolling">
             <div className="tech-marquee__viewport">
               <TechTrack />
               <TechTrack hidden />
@@ -199,7 +199,7 @@ export default function AboutPage() {
         <div className="about-cta" data-reveal>
           <div>
             <h2>Let&rsquo;s Build Something<br />Great Together</h2>
-            <p>Tell us about your project and we&rsquo;ll map the fastest path from idea to launch.</p>
+            <p>Tell us about your project and discuss a path from idea to release.</p>
           </div>
           <ButtonLink to="/contact">START A CONVERSATION</ButtonLink>
         </div>

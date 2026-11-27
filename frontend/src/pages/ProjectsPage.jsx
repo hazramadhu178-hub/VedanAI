@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowIcon, ButtonLink, responsiveImageProps, SectionLabel } from "../components/Shared.jsx";
 import "../styles/comingsoon.css";
@@ -9,24 +8,7 @@ const teasers = [
   { image: "/images/project-vision.webp", title: "Growth Engine", category: "SEO & Analytics" },
 ];
 
-const milestones = [
-  { label: "Design", value: 92 },
-  { label: "Development", value: 78 },
-  { label: "Testing", value: 54 },
-  { label: "Launch", value: 30 },
-];
-
 export default function ProjectsPage() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleNotify = (event) => {
-    event.preventDefault();
-    if (!email) return;
-    setSubscribed(true);
-    setEmail("");
-  };
-
   return (
     <section className="coming-page" id="projects" aria-labelledby="coming-heading">
       <div className="coming-page__glow" aria-hidden="true" />
@@ -54,14 +36,14 @@ export default function ProjectsPage() {
               <circle className="coming-orbit__sat coming-orbit__sat--two" cx="272" cy="160" r="4" fill="#25cde8" />
             </svg>
             <div className="coming-hero__badge">
-              <strong>SOON</strong>
-              <span>Under<br />Construction</span>
+              <strong>EXAMPLES</strong>
+                <span>Illustrative<br />Concepts</span>
             </div>
           </div>
 
-          <h1 id="coming-heading">Software Projects Coming Soon</h1>
+          <h1 id="coming-heading">Illustrative Project Concepts</h1>
           <p className="coming-hero__lead">
-            We&rsquo;re crafting something exceptional — a showcase of the products, platforms and growth stories we&rsquo;ve built for our clients. Stay tuned.
+            Explore representative concepts for web development, commerce, and search projects. These examples are not published client case studies or reports of completed work.
           </p>
 
           <div className="coming-hero__actions">
@@ -70,27 +52,24 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        {/* ---------- Progress ---------- */}
+        {/* ---------- How to read these examples ---------- */}
         <div className="coming-progress" data-reveal>
           <div className="coming-progress__intro">
-            <SectionLabel>Where We Are</SectionLabel>
-            <h2>Almost Ready to Launch</h2>
-            <p>Our team is putting the finishing touches on the new projects experience. Here&rsquo;s how far along we are.</p>
+            <SectionLabel>Project Information</SectionLabel>
+            <h2>Illustrative, Not Client Case Studies</h2>
+            <p>The examples below describe possible project considerations. Actual requirements, implementations, and results vary by project.</p>
           </div>
-          <div className="coming-progress__bars">
-            {milestones.map(({ label, value }) => (
-              <div className="coming-bar" key={label}>
-                <div className="coming-bar__head"><span>{label}</span><strong>{value}%</strong></div>
-                <div className="coming-bar__track"><div className="coming-bar__fill" style={{ width: `${value}%` }} /></div>
-              </div>
-            ))}
+          <div className="coming-progress__bars coming-progress__note">
+            <p>Project scope</p>
+            <p>Technology choices</p>
+            <p>Delivery requirements</p>
           </div>
         </div>
 
         {/* ---------- Teasers ---------- */}
         <div className="coming-teasers" data-reveal>
           <SectionLabel>Preview</SectionLabel>
-          <h2>A Glimpse of What&rsquo;s Coming</h2>
+          <h2>Example Areas of Work</h2>
           <div className="coming-teasers__grid">
             {teasers.map(({ image, title, category }) => (
               <article className="teaser-card" key={title}>
@@ -102,7 +81,7 @@ export default function ProjectsPage() {
                   decoding="async"
                 />
                 <div className="teaser-card__overlay">
-                  <span className="teaser-card__badge">Coming Soon</span>
+                  <span className="teaser-card__badge">Illustrative Example</span>
                   <div>
                     <small>{category}</small>
                     <strong>{title}</strong>
@@ -113,32 +92,13 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        {/* ---------- Notify ---------- */}
+        {/* ---------- Contact ---------- */}
         <div className="coming-notify" data-reveal>
           <div>
-            <h2>Be the First to Know</h2>
-            <p>Drop your email and we&rsquo;ll let you know the moment our new projects page goes live.</p>
+            <h2>Discuss a Project</h2>
+            <p>Contact VedanAI to share your requirements and discuss a project scope.</p>
           </div>
-          {subscribed ? (
-            <p className="coming-notify__success" role="status">
-              <span aria-hidden="true">✓</span> You&rsquo;re on the list! We&rsquo;ll be in touch soon.
-            </p>
-          ) : (
-            <form className="coming-notify__form" onSubmit={handleNotify}>
-              <label>
-                <span className="sr-only">Email address</span>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  placeholder="Enter your email"
-                  autoComplete="email"
-                  required
-                />
-              </label>
-              <button type="submit">NOTIFY ME <ArrowIcon /></button>
-            </form>
-          )}
+          <ButtonLink to="/contact">CONTACT VEDANAI</ButtonLink>
         </div>
       </div>
     </section>

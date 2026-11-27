@@ -5,69 +5,73 @@ import MaintenanceSection from "../components/MaintenanceSection.jsx";
 import "../styles/services.css";
 import "../styles/maintenance.css";
 
-const checks = ["Customizable", "Peak Performance", "Top Security"];
-const partners = ["OpenAI", "Microsoft", "NVIDIA", "Google Cloud", "AWS", "Anthropic"];
+const checks = ["Project-scoped", "Responsive layouts", "Technical foundations"];
+const technologies = ["React", "Vite", "JavaScript", "CSS"];
 
 const features = [
   {
     title: "Web Development",
-    description: "Custom websites and web apps built for speed and growth.",
+    description: "Websites and web applications planned around project requirements, content, users, and the features to be delivered.",
     icon: "chart",
     preview: "analytics",
+    slug: "web-development",
     wide: true,
   },
   {
     title: "Static Websites",
-    description: "Lightning-fast static sites optimized for performance and SEO.",
+    description: "Responsive static websites with focused page structures, clear content, and performance-conscious asset delivery.",
     icon: "automation",
     preview: "schedule",
+    slug: "static-website-design",
     wide: true,
   },
   {
     title: "Backend Development",
-    description: "Scalable APIs, secure databases and reliable infrastructure.",
+    description: "Server-side functionality and API development scoped to the needs of a website or application.",
     icon: "network",
     preview: "team",
+    slug: "backend-development",
     wide: true,
   },
   {
     title: "SEO Service",
-    description: "Boost rankings and turn search traffic into real customers.",
+    description: "Technical and on-page website improvements that support search engine discovery and help users understand site content.",
     icon: "spark",
     preview: "chat",
+    slug: "seo-digital-growth",
     wide: true,
   },
 ];
 
 const benefits = [
   {
-    title: "Expert Developers",
-    description: "An expert engineering team ready to tackle your challenges with modern solutions and proven strategies.",
+    title: "Project-specific scope",
+    description: "Requirements guide the proposed work, implementation choices, and delivery plan.",
     icon: "shield",
   },
   {
-    title: "Fast and Scalable",
-    description: "Scale your business effortlessly with software designed to grow alongside your evolving needs.",
+    title: "Responsive implementation",
+    description: "Page layouts and interface behavior are developed with mobile and desktop use in mind.",
     icon: "automation",
   },
   {
-    title: "Customizable for You",
-    description: "Customize every build to perfectly align with your business's unique requirements and goals.",
+    title: "Maintainable code",
+    description: "Implementation choices consider the structure and ongoing needs of the website or application.",
     icon: "layers",
   },
   {
-    title: "Maximum Efficiency",
-    description: "Maximize efficiency with optimized code and clean architecture that eliminate bottlenecks.",
+    title: "Technical foundations",
+    description: "Page structure, metadata, and application behavior are considered as part of the project.",
     icon: "chart",
   },
   {
-    title: "SEO Optimized",
-    description: "Every site ships with clean, search-friendly structure so you get found faster by customers.",
+    title: "Search considerations",
+    description: "Technical and on-page SEO can be included in the scope when relevant.",
     icon: "spark",
   },
 ];
 
-const benefitChips = ["Robust Security", "Customizable", "Responsive Design", "Fast Performance", "SEO Ready"];
+const benefitChips = ["Project-specific", "Responsive design", "Maintainable code", "Technical SEO"];
 
 function CheckIcon() {
   return (
@@ -92,16 +96,16 @@ function FeaturePreview({ type }) {
     return (
       <div className="service-preview service-preview--analytics" aria-hidden="true">
         <div className="service-preview__row">
-          <span>Average Daily Sales</span>
-          <strong>$41,379</strong>
+          <span>Website structure</span>
+          <strong>Pages</strong>
         </div>
         <MiniChart />
         <div className="service-preview__bars">
           <span style={{ height: "34%" }} /><span style={{ height: "58%" }} /><span style={{ height: "44%" }} /><span style={{ height: "76%" }} /><span style={{ height: "62%" }} /><span style={{ height: "92%" }} />
         </div>
         <div className="service-preview__metric">
-          <span>Revenue</span>
-          <strong>$12,482.50</strong>
+          <span>Focus</span>
+          <strong>Clear navigation</strong>
         </div>
       </div>
     );
@@ -110,9 +114,9 @@ function FeaturePreview({ type }) {
   if (type === "schedule") {
     return (
       <div className="service-preview service-preview--schedule" aria-hidden="true">
-        <div className="service-preview__tabs"><span className="is-active">Team Briefing</span><span>Pending</span><span>Post</span></div>
-        <div className="service-preview__schedule-row"><span className="service-preview__dot" /><div><strong>Product Launch Review</strong><small>10:00 AM - 11:30 AM</small></div><span className="service-preview__status">Ready</span></div>
-        <div className="service-preview__schedule-row"><span className="service-preview__dot service-preview__dot--blue" /><div><strong>Client Sync</strong><small>2:00 PM - 3:00 PM</small></div><span className="service-preview__status service-preview__status--blue">Scheduled</span></div>
+        <div className="service-preview__tabs"><span className="is-active">Structure</span><span>Content</span><span>Review</span></div>
+        <div className="service-preview__schedule-row"><span className="service-preview__dot" /><div><strong>Page layout</strong><small>Responsive structure</small></div><span className="service-preview__status">Plan</span></div>
+        <div className="service-preview__schedule-row"><span className="service-preview__dot service-preview__dot--blue" /><div><strong>Image assets</strong><small>Delivery and dimensions</small></div><span className="service-preview__status service-preview__status--blue">Review</span></div>
       </div>
     );
   }
@@ -121,13 +125,10 @@ function FeaturePreview({ type }) {
     return (
       <div className="service-preview service-preview--team" aria-hidden="true">
         <div className="service-preview__avatars">
-          <img src="/images/avatar-riya.jpg" alt="" width="240" height="240" loading="lazy" decoding="async" />
-          <img src="/images/avatar-miguel.jpg" alt="" width="240" height="240" loading="lazy" decoding="async" />
-          <img src="/images/avatar-sebastian.jpg" alt="" width="240" height="240" loading="lazy" decoding="async" />
-          <span>+8</span>
+          <span>API</span><span>Data</span><span>App</span>
         </div>
-        <div className="service-preview__invite"><strong>Invite friends to your company</strong><span>Share workspace access</span></div>
-        <span className="service-preview__invite-button">Invite</span>
+        <div className="service-preview__invite"><strong>Backend project areas</strong><span>Routes, logic, and integrations</span></div>
+        <span className="service-preview__invite-button">Project scope</span>
       </div>
     );
   }
@@ -135,21 +136,21 @@ function FeaturePreview({ type }) {
   if (type === "chat") {
     return (
       <div className="service-preview service-preview--chat" aria-hidden="true">
-        <div className="service-preview__chat-head"><span>Project Room</span><span>Today</span></div>
-        <div className="service-preview__bubble service-preview__bubble--left"><img src="/images/avatar-riya.jpg" alt="" width="240" height="240" loading="lazy" decoding="async" /><span>How can I help directly from the support team?</span></div>
-        <div className="service-preview__bubble service-preview__bubble--right"><span>Connect with our support agents who are ready to assist.</span><img src="/images/avatar-miguel.jpg" alt="" width="240" height="240" loading="lazy" decoding="async" /></div>
-        <div className="service-preview__bubble service-preview__bubble--left"><img src="/images/avatar-sebastian.jpg" alt="" width="240" height="240" loading="lazy" decoding="async" /><span>Great, I will update the workflow now.</span></div>
+        <div className="service-preview__chat-head"><span>Technical SEO</span><span>Review areas</span></div>
+        <div className="service-preview__bubble service-preview__bubble--left"><span>Page titles and descriptions</span></div>
+        <div className="service-preview__bubble service-preview__bubble--right"><span>Internal links and crawlable structure</span></div>
+        <div className="service-preview__bubble service-preview__bubble--left"><span>Structured data aligned with page content</span></div>
       </div>
     );
   }
 
   return (
     <div className="service-preview service-preview--dashboard" aria-hidden="true">
-      <div className="service-preview__dashboard-head"><span>Dashboard</span><span>Live</span></div>
+      <div className="service-preview__dashboard-head"><span>Website review</span><span>Example</span></div>
       <div className="service-preview__dashboard-grid">
-        <div><span>Total Revenue</span><strong>$348,261</strong><small>+12.4%</small></div>
-          <div><span>Active Users</span><strong>15,708.98</strong><small>+8.2%</small></div>
-        <div><span>Automation</span><strong>98.4%</strong><small>Live</small></div>
+        <div><span>Pages</span><strong>Content</strong><small>Structure</small></div>
+        <div><span>Interface</span><strong>Layout</strong><small>Responsive</small></div>
+        <div><span>Metadata</span><strong>Titles</strong><small>Review</small></div>
       </div>
       <MiniChart />
     </div>
@@ -161,27 +162,27 @@ export default function ServicesPage() {
     <section className="services-page" id="services" aria-labelledby="services-heading">
       <div className="site-container services-page__inner">
         <div className="services-hero" data-reveal>
-          <p className="services-pill"><span>New</span> Smart Software Features</p>
-          <h1 id="services-heading">Perfect Every Step<br />for Extraordinary Growth.<br />With Smart Software.</h1>
-          <p className="services-lead">Enhance your digital presence with fast, reliable websites and targeted growth strategies.</p>
+          <p className="services-pill">VedanAI Software Services</p>
+          <h1 id="services-heading">Web, Backend &amp; SEO<br />Services for Your Project</h1>
+          <p className="services-lead">Explore web development, static website design, backend engineering, and technical SEO services.</p>
           <ul className="services-checks">
             {checks.map((check) => <li key={check}><CheckIcon />{check}</li>)}
           </ul>
           <div className="services-actions">
             <ButtonLink to="#services-features">EXPLORE SERVICES</ButtonLink>
-            <Link className="services-ghost-button" to="/contact">Request a Demo <ArrowIcon /></Link>
+            <Link className="services-ghost-button" to="/contact">Discuss a Project <ArrowIcon /></Link>
           </div>
 
           <div className="services-trust">
-            <p>Join 4,000+ companies already growing with us</p>
-            <ul>{partners.map((partner) => <li key={partner}>{partner}</li>)}</ul>
+            <p>Technologies used on this website</p>
+            <ul>{technologies.map((technology) => <li key={technology}>{technology}</li>)}</ul>
           </div>
         </div>
 
         <div className="services-features" id="services-features" data-reveal>
           <p className="services-section-label">Valuable Services</p>
-          <h2>Customizable Solutions for Every Need</h2>
-          <p className="services-section-lead">Adapt our services to suit your unique business needs with flexible, scalable web solutions designed to grow with you.</p>
+          <h2>Services Shaped Around Project Requirements</h2>
+          <p className="services-section-lead">Explore the focus and scope of each service. Implementation details are agreed for each project.</p>
           <div className="services-feature-grid">
             {features.map((feature) => (
               <article className={`service-feature-card ${feature.wide ? "service-feature-card--wide" : ""}`} key={feature.title}>
@@ -191,6 +192,9 @@ export default function ServicesPage() {
                 </div>
                 <p>{feature.description}</p>
                 <FeaturePreview type={feature.preview} />
+                <Link className="service-feature-card__link" to={`/services/${feature.slug}`}>
+                  Explore {feature.title} <ArrowIcon />
+                </Link>
               </article>
             ))}
           </div>
@@ -201,8 +205,8 @@ export default function ServicesPage() {
         <div className="services-benefits" data-reveal>
           <div className="services-benefits__intro">
             <p className="services-section-label">Benefits</p>
-            <h2>Unlock a New Era of<br />Digital Excellence<br />and Growth</h2>
-            <p>Unlock digital excellence and growth with our modern development and streamlined delivery.</p>
+            <h2>Clear Scope,<br />Thoughtful Implementation</h2>
+            <p>Each project is discussed and scoped around its requirements and intended users.</p>
             <ul className="services-benefits__chips">
               {benefitChips.map((chip) => <li key={chip}>{chip}</li>)}
             </ul>

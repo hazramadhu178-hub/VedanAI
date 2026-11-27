@@ -2,10 +2,10 @@ import Icon from "./Icons.jsx";
 import { ArrowIcon, ButtonLink, SectionLabel } from "./Shared.jsx";
 
 const careFeatures = [
-  { title: "Regular Updates", description: "Core, plugin and dependency updates applied safely.", icon: "automation" },
-  { title: "24/7 Monitoring", description: "Uptime and performance alerts around the clock.", icon: "chart" },
-  { title: "Automated Backups", description: "Daily encrypted backups with one-click restore.", icon: "shield" },
-  { title: "Performance Checks", description: "Speed, SEO and accessibility audits every month.", icon: "spark" },
+  { title: "Update planning", description: "Review update requirements and compatibility for the project.", icon: "automation" },
+  { title: "Monitoring setup", description: "Discuss monitoring options appropriate to the website and hosting.", icon: "chart" },
+  { title: "Backup planning", description: "Define backup needs and recovery steps for the project.", icon: "shield" },
+  { title: "Performance review", description: "Review website performance as part of an agreed maintenance scope.", icon: "spark" },
 ];
 
 function AreaChart() {
@@ -57,10 +57,10 @@ export default function MaintenanceSection() {
     <section className="maintenance-section" id="maintenance" aria-labelledby="maintenance-heading">
       <div className="maintenance-section__inner">
         <div className="maintenance-copy" data-reveal>
-          <SectionLabel>Ongoing Care</SectionLabel>
+          <SectionLabel>Optional Project Scope</SectionLabel>
           <h2 id="maintenance-heading">Maintenance<br />&amp; Support</h2>
           <p className="maintenance-copy__lead">
-            Updates, monitoring, backups and performance checks after your website goes live — so it stays fast, secure and reliable.
+            Website maintenance and support requirements can be discussed and scoped for your project.
           </p>
 
           <ul className="maintenance-features">
@@ -75,60 +75,60 @@ export default function MaintenanceSection() {
             ))}
           </ul>
 
-          <ButtonLink to="/contact">GET A SUPPORT PLAN</ButtonLink>
+          <ButtonLink to="/contact">DISCUSS MAINTENANCE</ButtonLink>
         </div>
 
         {/* ---------- Live dashboard ---------- */}
-        <div className="maintenance-dashboard" data-reveal>
+        <div className="maintenance-dashboard" data-reveal aria-hidden="true">
           <div className="maintenance-dashboard__glow" aria-hidden="true" />
 
           <div className="maintenance-dashboard__head">
             <div className="maintenance-dashboard__dots" aria-hidden="true"><span /><span /><span /></div>
-            <span className="maintenance-dashboard__title">Dashboard</span>
-            <span className="maintenance-dashboard__live"><i aria-hidden="true" />Live</span>
+            <span className="maintenance-dashboard__title">Example dashboard</span>
+            <span className="maintenance-dashboard__live"><i aria-hidden="true" />Illustrative</span>
           </div>
 
           <div className="maintenance-dashboard__stats">
             <div className="maint-stat">
-              <span>Total Revenue</span>
-              <strong>$348,261</strong>
-              <em className="maint-stat__up">+12.4%</em>
+              <span>Updates</span>
+              <strong>Review</strong>
+              <em className="maint-stat__up">Scope-specific</em>
             </div>
             <div className="maint-stat">
-              <span>Active Users</span>
-              <strong>15,708.98</strong>
-              <em className="maint-stat__up">+8.2%</em>
+              <span>Monitoring</span>
+              <strong>Optional</strong>
+              <em className="maint-stat__up">Discussed per project</em>
             </div>
             <div className="maint-stat">
-              <span>Automation</span>
-              <strong>98.4%</strong>
-              <em className="maint-stat__live">Live</em>
+              <span>Backups</span>
+              <strong>Planned</strong>
+              <em className="maint-stat__live">Project scope</em>
             </div>
           </div>
 
           <div className="maintenance-dashboard__chart">
             <div className="maintenance-dashboard__chart-head">
-              <span>Performance</span>
-              <span className="maint-legend"><i aria-hidden="true" />This month</span>
+              <span>Illustrative activity view</span>
+              <span className="maint-legend"><i aria-hidden="true" />Example</span>
             </div>
             <AreaChart />
           </div>
 
           <div className="maintenance-dashboard__split">
             <div className="maint-bars-card">
-              <span>Weekly Activity</span>
+              <span>Review areas</span>
               <Bars />
             </div>
             <ul className="maint-status">
-              <li><span className="maint-status__dot maint-status__dot--ok" aria-hidden="true" /><span>Uptime</span><strong>99.9%</strong></li>
-              <li><span className="maint-status__dot maint-status__dot--ok" aria-hidden="true" /><span>Last backup</span><strong>2h ago</strong></li>
-              <li><span className="maint-status__dot maint-status__dot--ok" aria-hidden="true" /><span>Security</span><strong>Secure</strong></li>
+              <li><span className="maint-status__dot maint-status__dot--ok" aria-hidden="true" /><span>Updates</span><strong>Review</strong></li>
+              <li><span className="maint-status__dot maint-status__dot--ok" aria-hidden="true" /><span>Backups</span><strong>Plan</strong></li>
+              <li><span className="maint-status__dot maint-status__dot--ok" aria-hidden="true" /><span>Performance</span><strong>Review</strong></li>
             </ul>
           </div>
 
           <div className="maintenance-dashboard__foot">
-            <span><ArrowIcon /> All systems operational</span>
-            <span>Updated just now</span>
+            <span><ArrowIcon /> Example maintenance scope</span>
+            <span>Details depend on project</span>
           </div>
         </div>
       </div>

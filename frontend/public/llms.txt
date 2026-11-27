@@ -1,19 +1,28 @@
 # VedanAI
 
-VedanAI is a software development studio offering web development, static websites, backend development, and SEO services. Its website describes services for businesses in India and worldwide.
+VedanAI is a software development studio offering web development, static website design, backend development, and technical SEO services.
 
 ## Website
 
 - [Home](https://vedanai.pages.dev/)
 - [About VedanAI](https://vedanai.pages.dev/about)
 - [Services](https://vedanai.pages.dev/services)
+- [Web development](https://vedanai.pages.dev/services/web-development)
+- [Static website design](https://vedanai.pages.dev/services/static-website-design)
+- [Backend development](https://vedanai.pages.dev/services/backend-development)
+- [Technical SEO](https://vedanai.pages.dev/services/seo-digital-growth)
 - [Projects](https://vedanai.pages.dev/projects)
 - [Contact](https://vedanai.pages.dev/contact)
 
 ## Services
 
-- [Web development, static websites, backend development, and SEO](https://vedanai.pages.dev/services)
+- [Web development](https://vedanai.pages.dev/services/web-development)
+- [Static website design](https://vedanai.pages.dev/services/static-website-design)
+- [Backend development](https://vedanai.pages.dev/services/backend-development)
+- [Technical SEO and digital growth](https://vedanai.pages.dev/services/seo-digital-growth)
 - [Website maintenance and support](https://vedanai.pages.dev/services#maintenance)
+
+The project concepts on the Projects page are illustrative examples, not published client case studies.
 
 ## Contact
 

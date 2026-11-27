@@ -2,15 +2,15 @@ import Icon from "./Icons.jsx";
 import { SectionLabel } from "./Shared.jsx";
 
 const benefits = [
-  { title: "Web development", icon: "automation" },
-  { title: "Static website design", icon: "spark" },
-  { title: "Backend development", icon: "chart" },
-  { title: "SEO & digital growth", icon: "layers" },
-  { title: "Improved performance", icon: "arrow" },
-  { title: "Business growth", icon: "network" },
+  { title: "Web development", description: "Custom web pages and applications.", icon: "automation" },
+  { title: "Static website design", description: "Responsive pages and considered assets.", icon: "spark" },
+  { title: "Backend development", description: "Server-side logic, APIs, and integrations.", icon: "chart" },
+  { title: "SEO & digital growth", description: "Technical and on-page SEO.", icon: "layers" },
+  { title: "Improved performance", description: "Performance-aware web delivery.", icon: "arrow" },
+  { title: "Business growth", description: "Solutions shaped around project goals.", icon: "network" },
 ];
 
-const platforms = ["React", "Node.js", "Next.js", "Google", "AWS", "WordPress"];
+const platforms = ["React", "Vite", "JavaScript", "CSS", "Node.js", "Express"];
 
 function MissionOrbit() {
   return (
@@ -304,23 +304,25 @@ export default function Mission() {
         </div>
         <div className="mission-grid">
           <div className="mission-grid__side mission-grid__side--left">
-            {benefits.slice(0, 3).map(({ title, icon }) => (
+            {benefits.slice(0, 3).map(({ title, description, icon }) => (
               <div className="mission-benefit" key={title} data-reveal>
-                <span>{title}</span><span className="mission-benefit__icon"><Icon name={icon} /></span>
+                <span className="mission-benefit__copy"><strong>{title}</strong><small>{description}</small></span>
+                <span className="mission-benefit__icon"><Icon name={icon} /></span>
               </div>
             ))}
           </div>
           <MissionOrbit />
           <div className="mission-grid__side mission-grid__side--right">
-            {benefits.slice(3).map(({ title, icon }) => (
+            {benefits.slice(3).map(({ title, description, icon }) => (
               <div className="mission-benefit" key={title} data-reveal>
-                <span className="mission-benefit__icon"><Icon name={icon} /></span><span>{title}</span>
+                <span className="mission-benefit__icon"><Icon name={icon} /></span>
+                <span className="mission-benefit__copy"><strong>{title}</strong><small>{description}</small></span>
               </div>
             ))}
           </div>
         </div>
         <div className="platforms" data-reveal>
-          <SectionLabel>Technologies We Work With</SectionLabel>
+          <SectionLabel>Technologies Used in This Project</SectionLabel>
           <div className="platforms__logos">
             {platforms.map((platform, index) => <span className={`platforms__logo platforms__logo--${index + 1}`} key={platform}>{platform}</span>)}
           </div>

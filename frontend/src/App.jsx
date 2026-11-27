@@ -6,110 +6,49 @@ import Preloader from "./components/Preloader.jsx";
 import AeroBackground from "./components/AeroBackground.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import { services, servicesBySlug } from "./serviceCatalog.js";
 
 const AboutPage = lazy(() => import("./pages/AboutPage.jsx"));
 const ContactPage = lazy(() => import("./pages/ContactPage.jsx"));
 const HomePage = lazy(() => import("./pages/HomePage.jsx"));
 const ProjectsPage = lazy(() => import("./pages/ProjectsPage.jsx"));
 const ServicesPage = lazy(() => import("./pages/ServicesPage.jsx"));
+const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage.jsx"));
 
 const pageMetadata = {
   home: {
-    title: "VedanAI | Software Development & AI Solutions",
+    title: "VedanAI | Web Development, Backend & SEO",
     description:
-      "VedanAI builds custom websites, web applications, AI-enabled software and automation for businesses in India and worldwide. Explore practical digital solutions.",
+      "VedanAI provides web development, backend engineering, static website design, and technical SEO services.",
     path: "/",
   },
   about: {
     title: "About VedanAI | Software Development Studio",
     description:
-      "Meet VedanAI, a software development studio for startups and enterprises, focused on web development, backend engineering and search-driven digital strategy.",
+      "Learn about VedanAI's web development, backend engineering, and technical SEO services and project approach.",
     path: "/about",
   },
   services: {
     title: "Web Development, Backend & SEO Services | VedanAI",
     description:
-      "Explore VedanAI web development, static websites, backend engineering, SEO and website maintenance. Flexible software services built for performance and growth.",
+      "Explore VedanAI's web development, static website design, backend development, and technical SEO services.",
     path: "/services",
   },
   projects: {
-    title: "VedanAI Software Projects & Case Studies",
+    title: "Illustrative Software Project Concepts | VedanAI",
     description:
-      "Explore VedanAI software project previews across web development, e-commerce and SEO analytics. Our full case study showcase is currently in development.",
+      "Browse illustrative website, backend, commerce, and SEO project concepts. These examples are not published client case studies.",
     path: "/projects",
   },
   contact: {
     title: "Contact VedanAI | Start a Software Project",
     description:
-      "Contact VedanAI to discuss a website, web application, backend, SEO or automation project. Share your goals and our team will respond within one business day.",
+      "Contact VedanAI about web development, backend engineering, static website design, or technical SEO.",
     path: "/contact",
   },
 };
 
 const organizationId = "https://vedanai.pages.dev/#organization";
-const homepageServiceStructuredData = [
-  {
-    "@type": "Service",
-    "@id": "https://vedanai.pages.dev/#service-ecommerce-development",
-    name: "E-commerce Development",
-    serviceType: "E-commerce development",
-    description:
-      "We create online stores that boost sales and customer engagement, with smooth checkout flows, product management, and performance tuning. Our builds help brands sell more and grow faster.",
-    url: "https://vedanai.pages.dev/#project-commerce",
-    provider: { "@id": organizationId },
-  },
-];
-const servicesStructuredData = [
-  {
-    "@type": "Service",
-    "@id": "https://vedanai.pages.dev/services#service-web-development",
-    name: "Web Development",
-    serviceType: "Web development",
-    description: "Custom websites and web apps built for speed and growth.",
-    url: "https://vedanai.pages.dev/services",
-    provider: { "@id": organizationId },
-  },
-  {
-    "@type": "Service",
-    "@id": "https://vedanai.pages.dev/services#service-static-websites",
-    name: "Static Websites",
-    serviceType: "Static website development",
-    description:
-      "Lightning-fast static sites optimized for performance and SEO.",
-    url: "https://vedanai.pages.dev/services",
-    provider: { "@id": organizationId },
-  },
-  {
-    "@type": "Service",
-    "@id": "https://vedanai.pages.dev/services#service-backend-development",
-    name: "Backend Development",
-    serviceType: "Backend development",
-    description:
-      "Scalable APIs, secure databases and reliable infrastructure.",
-    url: "https://vedanai.pages.dev/services",
-    provider: { "@id": organizationId },
-  },
-  {
-    "@type": "Service",
-    "@id": "https://vedanai.pages.dev/services#service-seo",
-    name: "SEO Services",
-    serviceType: "Search engine optimization",
-    description:
-      "Boost rankings and turn search traffic into real customers.",
-    url: "https://vedanai.pages.dev/services",
-    provider: { "@id": organizationId },
-  },
-  {
-    "@type": "Service",
-    "@id": "https://vedanai.pages.dev/services#service-maintenance",
-    name: "Website Maintenance and Support",
-    serviceType: "Website maintenance",
-    description:
-      "Updates, monitoring, backups and performance checks after your website goes live — so it stays fast, secure and reliable.",
-    url: "https://vedanai.pages.dev/services#maintenance",
-    provider: { "@id": organizationId },
-  },
-];
 
 export default function App() {
   const location = useLocation();
@@ -118,36 +57,41 @@ export default function App() {
   const finishLoading = useCallback(() => setLoading(false), []);
 
   const pathname = location.pathname.replace(/\/+$/, "") || "/";
+  const serviceSlug = pathname.startsWith("/services/")
+    ? pathname.slice("/services/".length)
+    : "";
+  const service = servicesBySlug[serviceSlug];
   const page = {
     "/": "home",
     "/about": "about",
     "/services": "services",
     "/projects": "projects",
     "/contact": "contact",
-  }[pathname] || "home";
+  }[pathname] || (service ? "services" : "home");
 
   useEffect(() => {
-    const metadata = pageMetadata[page];
+    const metadata = service
+      ? { ...service, title: service.metaTitle }
+      : pageMetadata[page];
     document.title = metadata.title;
     document.querySelector('meta[name="description"]').setAttribute(
       "content",
       metadata.description
     );
-    document.querySelector('link[rel="canonical"]').setAttribute(
-      "href",
-      new URL(metadata.path, "https://vedanai.pages.dev").href
-    );
-  }, [page]);
+    const canonicalPath = service ? `/services/${service.slug}` : metadata.path;
+    const canonicalUrl = new URL(canonicalPath, "https://vedanai.pages.dev").href;
+    document.querySelector('link[rel="canonical"]').setAttribute("href", canonicalUrl);
+    document.querySelector('meta[property="og:title"]').setAttribute("content", metadata.title);
+    document.querySelector('meta[property="og:description"]').setAttribute("content", metadata.description);
+    document.querySelector('meta[property="og:url"]').setAttribute("content", canonicalUrl);
+    document.querySelector('meta[name="twitter:title"]').setAttribute("content", metadata.title);
+    document.querySelector('meta[name="twitter:description"]').setAttribute("content", metadata.description);
+  }, [page, service]);
 
   useEffect(() => {
     const scriptId = "vedanai-services-structured-data";
     let script = document.getElementById(scriptId);
-    const routeServices =
-      page === "home"
-        ? homepageServiceStructuredData
-        : page === "services"
-          ? servicesStructuredData
-          : [];
+    const routeServices = service ? [service] : page === "services" ? services : [];
 
     if (!routeServices.length) {
       script?.remove();
@@ -161,11 +105,32 @@ export default function App() {
       document.head.appendChild(script);
     }
 
+    const graph = routeServices.map((item) => ({
+      "@type": "Service",
+      "@id": `https://vedanai.pages.dev/services/${item.slug}#service`,
+      name: item.name,
+      serviceType: item.name,
+      description: item.description,
+      url: `https://vedanai.pages.dev/services/${item.slug}`,
+      provider: { "@id": organizationId },
+    }));
+
+    if (service) {
+      graph.push({
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://vedanai.pages.dev/" },
+          { "@type": "ListItem", position: 2, name: "Services", item: "https://vedanai.pages.dev/services" },
+          { "@type": "ListItem", position: 3, name: service.name, item: `https://vedanai.pages.dev/services/${service.slug}` },
+        ],
+      });
+    }
+
     script.textContent = JSON.stringify({
       "@context": "https://schema.org",
-      "@graph": routeServices,
+      "@graph": graph,
     });
-  }, [page]);
+  }, [page, service]);
 
   useEffect(() => {
     const targetId = location.hash.slice(1);
@@ -305,6 +270,7 @@ export default function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/services" element={<ServicesPage />} />
+              <Route path="/services/:slug" element={<ServiceDetailPage />} />
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />

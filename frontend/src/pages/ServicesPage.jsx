@@ -160,7 +160,7 @@ export default function ServicesPage() {
       <div className="site-container services-page__inner">
         <div className="services-hero" data-reveal>
           <p className="services-pill"><span>New</span> Smart Software Features</p>
-          <h2 id="services-heading">Perfect Every Step<br />for Extraordinary Growth.<br />With Smart Software.</h2>
+          <h1 id="services-heading">Perfect Every Step<br />for Extraordinary Growth.<br />With Smart Software.</h1>
           <p className="services-lead">Enhance your digital presence with fast, reliable websites and targeted growth strategies.</p>
           <ul className="services-checks">
             {checks.map((check) => <li key={check}><CheckIcon />{check}</li>)}

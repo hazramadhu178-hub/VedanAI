@@ -13,30 +13,65 @@ import HomePage from "./pages/HomePage.jsx";
 import ProjectsPage from "./pages/ProjectsPage.jsx";
 import ServicesPage from "./pages/ServicesPage.jsx";
 
+const pageMetadata = {
+  home: {
+    title: "VedanAI | Software Development & AI Solutions",
+    description:
+      "VedanAI builds custom websites, web applications, AI-enabled software and automation for businesses in India and worldwide. Explore practical digital solutions.",
+    path: "/",
+  },
+  about: {
+    title: "About VedanAI | Software Development Studio",
+    description:
+      "Meet VedanAI, a software development studio for startups and enterprises, focused on web development, backend engineering and search-driven digital strategy.",
+    path: "/about",
+  },
+  services: {
+    title: "Web Development, Backend & SEO Services | VedanAI",
+    description:
+      "Explore VedanAI web development, static websites, backend engineering, SEO and website maintenance. Flexible software services built for performance and growth.",
+    path: "/services",
+  },
+  projects: {
+    title: "VedanAI Software Projects & Case Studies",
+    description:
+      "Explore VedanAI software project previews across web development, e-commerce and SEO analytics. Our full case study showcase is currently in development.",
+    path: "/projects",
+  },
+  contact: {
+    title: "Contact VedanAI | Start a Software Project",
+    description:
+      "Contact VedanAI to discuss a website, web application, backend, SEO or automation project. Share your goals and our team will respond within one business day.",
+    path: "/contact",
+  },
+};
+
 export default function App() {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
 
   const finishLoading = useCallback(() => setLoading(false), []);
 
+  const pathname = location.pathname.replace(/\/+$/, "") || "/";
   const page = {
     "/": "home",
     "/about": "about",
     "/services": "services",
     "/projects": "projects",
     "/contact": "contact",
-  }[location.pathname] || "home";
+  }[pathname] || "home";
 
   useEffect(() => {
-    const titles = {
-      home: "VedanAI | Web Development, Backend & SEO Software Agency",
-      about: "About Us | VedanAI Software Studio",
-      services: "Services | VedanAI",
-      projects: "Projects | VedanAI",
-      contact: "Contact Us | VedanAI Software Studio",
-    };
-
-    document.title = titles[page];
+    const metadata = pageMetadata[page];
+    document.title = metadata.title;
+    document.querySelector('meta[name="description"]').setAttribute(
+      "content",
+      metadata.description
+    );
+    document.querySelector('link[rel="canonical"]').setAttribute(
+      "href",
+      new URL(metadata.path, "https://vedanai.pages.dev").href
+    );
   }, [page]);
 
   useEffect(() => {

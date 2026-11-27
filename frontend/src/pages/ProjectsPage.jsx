@@ -58,7 +58,7 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          <h1 id="coming-heading">Coming Soon</h1>
+          <h1 id="coming-heading">Software Projects Coming Soon</h1>
           <p className="coming-hero__lead">
             We&rsquo;re crafting something exceptional — a showcase of the products, platforms and growth stories we&rsquo;ve built for our clients. Stay tuned.
           </p>
